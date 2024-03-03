@@ -5,8 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@color/white"
+        android:orientation="vertical"
         android:paddingTop="8dp"
         android:paddingBottom="8dp">
 
@@ -21,11 +21,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/avenir_bold"
             android:text="Permissions Required"
+            android:textColor="@color/colorBlack"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_close_bottom_sheet" />
@@ -55,9 +57,10 @@
             android:id="@+id/tv_des_show_over_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
             android:layout_marginStart="15dp"
+            android:fontFamily="@font/avenir_medium"
             android:text="Show Over Other Apps"
+            android:textColor="@color/colorBlack"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_show_over_app"
             app:layout_constraintStart_toEndOf="@id/ic_show_over_app"
@@ -76,8 +79,8 @@
             android:id="@+id/tv_content_show_over_app"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
             android:text="Allow lock screen to show over other apps"
+            android:textColor="@color/colorBlack"
             android:textSize="13sp"
             app:layout_constraintEnd_toStartOf="@id/sw_show_over_app"
             app:layout_constraintStart_toStartOf="@id/tv_des_show_over_app"
@@ -109,8 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:textColor="@color/colorBlack"
             android:text="Detect Launched App"
+            android:textColor="@color/colorBlack"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@id/ic_detect"
             app:layout_constraintStart_toEndOf="@id/ic_detect"
@@ -130,8 +133,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Permit to detect wich app is launched by granting access to usage statistics"
-            android:textSize="13sp"
             android:textColor="@color/colorBlack"
+            android:textSize="13sp"
             app:layout_constraintEnd_toStartOf="@id/sw_show_over_app"
             app:layout_constraintStart_toStartOf="@id/ic_detect"
             app:layout_constraintTop_toBottomOf="@id/ic_detect" />
@@ -150,8 +153,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#123123"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/background_buttom_permission"
             android:gravity="center"
+            android:paddingVertical="10dp"
             android:text="Go to setting"
             android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/view_3" />
