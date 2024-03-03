@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "252576614851",
+    "project_id": "applocker-62a04",
+    "storage_bucket": "applocker-62a04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252576614851:android:27016b340aa02e9b4c5576",
+        "android_client_info": {
+          "package_name": "com.momentolabs.app.security.applocker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC3Ea1quwC-6Crcau49rBA-mi54K9dXho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

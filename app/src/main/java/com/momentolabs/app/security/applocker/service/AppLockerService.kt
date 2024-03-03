@@ -3,36 +3,42 @@ package com.momentolabs.app.security.applocker.service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.os.Build
 import android.os.IBinder
-import androidx.core.app.NotificationManagerCompat
-import com.momentolabs.app.security.applocker.data.database.lockedapps.LockedAppsDao
-import com.momentolabs.app.security.applocker.service.notification.ServiceNotificationManager
-import com.momentolabs.app.security.applocker.service.stateprovider.AppForegroundObservable
-import com.momentolabs.app.security.applocker.util.extensions.plusAssign
-import dagger.android.DaggerService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
+import android.util.Log
 import android.view.WindowManager
+import androidx.core.app.NotificationManagerCompat
 import com.andrognito.patternlockview.PatternLockView
+import com.bugsnag.android.Bugsnag
+import com.momentolabs.app.security.applocker.PackageNameSendByEventBus
 import com.momentolabs.app.security.applocker.data.AppLockerPreferences
-import com.momentolabs.app.security.applocker.util.extensions.convertToPatternDot
+import com.momentolabs.app.security.applocker.data.SystemPackages
+import com.momentolabs.app.security.applocker.data.database.lockedapps.LockedAppsDao
 import com.momentolabs.app.security.applocker.data.database.pattern.PatternDao
 import com.momentolabs.app.security.applocker.data.database.pattern.PatternDot
+import com.momentolabs.app.security.applocker.service.notification.ServiceNotificationManager
+import com.momentolabs.app.security.applocker.service.stateprovider.AppForegroundObservable
 import com.momentolabs.app.security.applocker.service.stateprovider.PermissionCheckerObservable
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
 import com.momentolabs.app.security.applocker.ui.overlay.view.OverlayViewLayoutParams
 import com.momentolabs.app.security.applocker.ui.overlay.view.PatternOverlayView
+import com.momentolabs.app.security.applocker.ui.permissions.PermissionChecker
+import com.momentolabs.app.security.applocker.util.extensions.convertToPatternDot
+import com.momentolabs.app.security.applocker.util.extensions.plusAssign
+import dagger.android.DaggerService
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
-import io.reactivex.subjects.PublishSubject
-import android.content.IntentFilter
-import android.util.Log
-import com.bugsnag.android.Bugsnag
-import com.momentolabs.app.security.applocker.data.SystemPackages
-import com.momentolabs.app.security.applocker.ui.permissions.PermissionChecker
+import io.reactivex.FlowableEmitter
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+import javax.inject.Inject
 
 
 class AppLockerService : DaggerService() {
@@ -42,6 +48,9 @@ class AppLockerService : DaggerService() {
 
     @Inject
     lateinit var appForegroundObservable: AppForegroundObservable
+
+    var foregroundFlowable: Flowable<String>? = null
+    var flowableEmitter: FlowableEmitter<String>? = null
 
     @Inject
     lateinit var permissionCheckerObservable: PermissionCheckerObservable
@@ -101,7 +110,12 @@ class AppLockerService : DaggerService() {
 
     override fun onCreate() {
         super.onCreate()
-
+        foregroundFlowable = Flowable.create({ emitter: FlowableEmitter<String> ->
+            flowableEmitter = emitter
+        }, BackpressureStrategy.BUFFER)
+            .subscribeOn(Schedulers.io())
+            .observeOn(Schedulers.io())
+        EventBus.getDefault().register(this);
         initializeAppLockerNotification()
 
         initializeOverlayView()
@@ -126,6 +140,8 @@ class AppLockerService : DaggerService() {
         if (allDisposables.isDisposed.not()) {
             allDisposables.dispose()
         }
+        EventBus.getDefault().unregister(this);
+
         super.onDestroy()
     }
 
@@ -191,14 +207,23 @@ class AppLockerService : DaggerService() {
         if (foregroundAppDisposable != null && foregroundAppDisposable?.isDisposed?.not() == true) {
             return
         }
-
-        foregroundAppDisposable = appForegroundObservable
-            .get()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
+        foregroundAppDisposable = foregroundFlowable
+            ?.subscribe(
                 { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-                { error -> Bugsnag.notify(error) })
+                { error -> Bugsnag.notify(error) }
+            )
+//        else {
+//            Log.d("asgawgawgawg", "3333: ")
+//
+//            appForegroundObservable
+//                .get()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(
+//                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
+//                    { error -> Bugsnag.notify(error) })
+//        }
+
         allDisposables.add(foregroundAppDisposable!!)
     }
 
@@ -224,6 +249,7 @@ class AppLockerService : DaggerService() {
 
     private fun onAppForeground(foregroundAppPackage: String) {
         hideOverlay()
+        Log.d("asgawgawgawgawg", "onAppForeground: $foregroundAppPackage")
         if (lockedAppPackageSet.contains(foregroundAppPackage)) {
             if (appLockerPreferences.getFingerPrintEnabled() || PermissionChecker.checkOverlayPermission(
                     applicationContext
@@ -284,6 +310,22 @@ class AppLockerService : DaggerService() {
         if (isOverlayShowing) {
             isOverlayShowing = false
             windowManager.removeViewImmediate(overlayView)
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onMessageEvent(event: PackageNameSendByEventBus?) {
+        if (event != null) {
+            if (foregroundFlowable == null) {
+                foregroundFlowable = Flowable.create({ emitter: FlowableEmitter<String> ->
+                    flowableEmitter = emitter
+                }, BackpressureStrategy.BUFFER)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(Schedulers.io())
+            }
+            Log.d("asgawgagawg", "onMessageEvent: ${event.packageName}")
+            flowableEmitter?.onNext(event.packageName)
+
         }
     }
 

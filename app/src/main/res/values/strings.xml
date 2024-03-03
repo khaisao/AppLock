@@ -182,5 +182,7 @@
     <string name="title_intruders_photos">Intruders Photos</string>
     <string name="empty_page_intruders_title">No Intruders Catched</string>
     <string name="empty_page_intruders_description">Your phone is secure!</string>
+    <string name="accessibility_service_description">KhaiAppLock</string>
+    <string name="accessibility_service_label">khai_app_lock_label</string>
 
 </resources>
