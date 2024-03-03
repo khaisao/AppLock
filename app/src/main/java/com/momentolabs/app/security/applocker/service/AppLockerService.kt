@@ -207,22 +207,22 @@ class AppLockerService : DaggerService() {
         if (foregroundAppDisposable != null && foregroundAppDisposable?.isDisposed?.not() == true) {
             return
         }
-        foregroundAppDisposable = foregroundFlowable
-            ?.subscribe(
-                { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-                { error -> Bugsnag.notify(error) }
-            )
-//        else {
-//            Log.d("asgawgawgawg", "3333: ")
-//
-//            appForegroundObservable
-//                .get()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(
-//                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-//                    { error -> Bugsnag.notify(error) })
-//        }
+        if (Build.VERSION.SDK_INT >= 30) {
+            foregroundAppDisposable = foregroundFlowable
+                ?.subscribe(
+                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
+                    { error -> Bugsnag.notify(error) }
+                )
+        } else {
+            foregroundAppDisposable = appForegroundObservable
+                .get()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
+                    { error -> Bugsnag.notify(error) })
+        }
+
 
         allDisposables.add(foregroundAppDisposable!!)
     }

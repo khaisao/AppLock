@@ -5,19 +5,11 @@ import android.accessibilityservice.AccessibilityServiceInfo
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import com.momentolabs.app.security.applocker.PackageNameSendByEventBus
-import io.reactivex.BackpressureStrategy
-import io.reactivex.Flowable
-import io.reactivex.FlowableEmitter
-import io.reactivex.schedulers.Schedulers
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 
 
 class MyAccessibilityService @Inject constructor() : AccessibilityService() {
-
-    companion object {
-
-    }
 
     public override fun onServiceConnected() {
         // Set the type of events that this service wants to listen to. Others
@@ -38,16 +30,6 @@ class MyAccessibilityService @Inject constructor() : AccessibilityService() {
         // info.flags = AccessibilityServiceInfo.DEFAULT;
         info.notificationTimeout = 100
         this.serviceInfo = info
-//        get()
-//
-//        foregroundFlowable?.subscribe(
-//            { packageName ->
-//                Log.d("asgagwawg", "Received: $packageName")
-//                // Xử lý giá trị packageName nhận được
-//            },
-//            { error -> Log.e("asgagwawg", "Error: ${error.message}") },
-//            { Log.d("asgagwawg", "Completed") }
-//        )
         Log.d("asgagwawg", "onServiceConnected: ")
     }
 
@@ -61,13 +43,4 @@ class MyAccessibilityService @Inject constructor() : AccessibilityService() {
     override fun onInterrupt() {
         Log.d("asgagwawg", "onInterrupt: ")
     }
-
-//    fun get(): Flowable<String> {
-//        foregroundFlowable = Flowable.create({ emitter: FlowableEmitter<String> ->
-//            flowableEmitter = emitter
-//        }, BackpressureStrategy.BUFFER)
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(Schedulers.io())
-//        return foregroundFlowable!!
-//    }
 }

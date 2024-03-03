@@ -18,6 +18,7 @@ import com.momentolabs.app.security.applocker.ui.BaseActivity
 import com.momentolabs.app.security.applocker.ui.main.analytics.MainActivityAnalytics
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActivity
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
+import com.momentolabs.app.security.applocker.ui.permissions.PermissionBottomSheet
 import com.momentolabs.app.security.applocker.ui.policydialog.PrivacyPolicyDialog
 import com.momentolabs.app.security.applocker.util.helper.NavigationIntentHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,7 +35,7 @@ class MainActivity : BaseActivity<MainViewModel>(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+//        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         binding.viewPager.adapter = MainPagerAdapter(this, supportFragmentManager)
         binding.tablayout.setupWithViewPager(binding.viewPager)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
@@ -67,6 +68,8 @@ class MainActivity : BaseActivity<MainViewModel>(),
                 }
             }
         })
+        showPermissionIfNeedAndroid11()
+
     }
 
     override fun onBackPressed() {
@@ -113,6 +116,10 @@ class MainActivity : BaseActivity<MainViewModel>(),
         if (viewModel.isPrivacyPolicyAccepted().not()) {
             PrivacyPolicyDialog.newInstance().show(supportFragmentManager, "")
         }
+    }
+
+    private fun showPermissionIfNeedAndroid11() {
+        PermissionBottomSheet.newInstance().show(supportFragmentManager, "")
     }
 
     companion object {

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_close_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_close_bottom_sheet_permission"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Permissions Required"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_close_bottom_sheet" />
+
+        <View
+            android:id="@+id/view_1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:background="#EDEDED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <ImageView
+            android:id="@+id/ic_show_over_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_show_over_app"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_1" />
+
+        <TextView
+            android:id="@+id/tv_des_show_over_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:layout_marginStart="15dp"
+            android:text="Show Over Other Apps"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_show_over_app"
+            app:layout_constraintStart_toEndOf="@id/ic_show_over_app"
+            app:layout_constraintTop_toTopOf="@id/ic_show_over_app" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_show_over_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_show_over_app"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_show_over_app" />
+
+        <TextView
+            android:id="@+id/tv_content_show_over_app"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="Allow lock screen to show over other apps"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@id/sw_show_over_app"
+            app:layout_constraintStart_toStartOf="@id/tv_des_show_over_app"
+            app:layout_constraintTop_toBottomOf="@id/tv_des_show_over_app" />
+
+        <View
+            android:id="@+id/view_2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:background="#EDEDED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content_show_over_app" />
+
+        <ImageView
+            android:id="@+id/ic_detect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_detech_launcher_app"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+        <TextView
+            android:id="@+id/tv_des_detect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/colorBlack"
+            android:text="Detect Launched App"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_detect"
+            app:layout_constraintStart_toEndOf="@id/ic_detect"
+            app:layout_constraintTop_toTopOf="@id/ic_detect" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/sw_detect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/ic_detect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ic_detect" />
+
+        <TextView
+            android:id="@+id/tv_content_detect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Permit to detect wich app is launched by granting access to usage statistics"
+            android:textSize="13sp"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintEnd_toStartOf="@id/sw_show_over_app"
+            app:layout_constraintStart_toStartOf="@id/ic_detect"
+            app:layout_constraintTop_toBottomOf="@id/ic_detect" />
+
+        <View
+            android:id="@+id/view_3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:background="#EDEDED"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content_detect" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#123123"
+            android:gravity="center"
+            android:text="Go to setting"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/view_3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

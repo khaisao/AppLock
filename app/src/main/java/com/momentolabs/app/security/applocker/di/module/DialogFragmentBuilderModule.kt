@@ -5,6 +5,7 @@ import com.momentolabs.app.security.applocker.data.database.callblocker.addtobla
 import com.momentolabs.app.security.applocker.ui.browser.bookmarks.BookmarksDialog
 import com.momentolabs.app.security.applocker.ui.callblocker.blacklist.delete.BlackListItemDeleteDialog
 import com.momentolabs.app.security.applocker.ui.permissiondialog.UsageAccessPermissionDialog
+import com.momentolabs.app.security.applocker.ui.permissions.PermissionBottomSheet
 import com.momentolabs.app.security.applocker.ui.policydialog.PrivacyPolicyDialog
 import com.momentolabs.app.security.applocker.ui.rateus.RateUsDialog
 import com.momentolabs.app.security.applocker.ui.vault.addingvaultdialog.AddToVaultDialog
@@ -18,6 +19,10 @@ abstract class DialogFragmentBuilderModule {
     @FragmentScope
     @ContributesAndroidInjector
     abstract fun rateUsDialogFragment(): RateUsDialog
+
+    @FragmentScope
+    @ContributesAndroidInjector
+    abstract fun permissionBottomSheetDialogFragment(): PermissionBottomSheet
 
     @FragmentScope
     @ContributesAndroidInjector
