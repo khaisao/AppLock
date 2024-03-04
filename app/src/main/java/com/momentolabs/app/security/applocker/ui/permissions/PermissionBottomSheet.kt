@@ -31,7 +31,6 @@ class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
         if (isCanDrawOverlayPermission()) {
             binding.swShowOverApp.isChecked = true
             binding.swShowOverApp.setOnClickListener {
-
             }
         } else {
             binding.swShowOverApp.isChecked = false
@@ -43,14 +42,31 @@ class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
                 )
                 startActivity(intent)
             }
-
+        }
+        if (PermissionChecker.checkUsageAccessPermission(requireContext()).not()) {
+            binding.swDetect.isChecked = false
+            binding.swDetect.setOnClickListener {
+                startActivity(IntentHelper.usageAccessIntent())
+                dismiss()
+            }
+        } else {
+            binding.swDetect.isChecked = true
+            binding.swDetect.setOnClickListener {
+            }
         }
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+    }
+
     companion object {
         fun newInstance(): AppCompatDialogFragment {
-            return PermissionBottomSheet()
+            val dialog = PermissionBottomSheet()
+            dialog.isCancelable = false
+            return dialog
         }
     }
 

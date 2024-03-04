@@ -184,5 +184,11 @@
     <string name="empty_page_intruders_description">Your phone is secure!</string>
     <string name="accessibility_service_description">KhaiAppLock</string>
     <string name="accessibility_service_label">khai_app_lock_label</string>
+    <string name="permissions_required">Permissions Required</string>
+    <string name="show_over_other_apps">Show Over Other Apps</string>
+    <string name="allow_lock_screen_to_show_over_other_apps">Allow lock screen to show over other apps</string>
+    <string name="detect_launched_app">Detect Launched App</string>
+    <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">Permit to detect wich app is launched by granting access to usage statistics</string>
+    <string name="go_to_setting">Go to setting</string>
 
 </resources>

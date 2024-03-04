@@ -35,7 +35,7 @@ class MainActivity : BaseActivity<MainViewModel>(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+//        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         binding.viewPager.adapter = MainPagerAdapter(this, supportFragmentManager)
         binding.tablayout.setupWithViewPager(binding.viewPager)
         binding.viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {

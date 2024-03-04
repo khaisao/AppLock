@@ -20,6 +20,7 @@ class AppForegroundObservable @Inject constructor(val context: Context) {
 
     fun get(): Flowable<String> {
         foregroundFlowable = when {
+            Build.VERSION.SDK_INT >= 30 -> getForegroundObservableHigherAndroid11()
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> getForegroundObservableHigherLollipop()
             else -> getForegroundObservableLowerLollipop()
         }
@@ -53,6 +54,25 @@ class AppForegroundObservable @Inject constructor(val context: Context) {
             .filter { it.className.contains(OverlayValidationActivity::class.java.simpleName).not() }
             .map { it.packageName }
             .distinctUntilChanged()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun getForegroundObservableHigherAndroid11(): Flowable<String> {
+        return Flowable.interval(100, TimeUnit.MILLISECONDS)
+            .filter { PermissionChecker.checkUsageAccessPermission(context) }
+            .map {
+                val mUsageStatsManager = context.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
+                val endTime = System.currentTimeMillis()
+                val startTime = endTime - 1000 * 3600 // Lấy thông tin trong vòng 1 giờ trước đó
+
+                val usageStatsList = mUsageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_BEST, startTime, endTime)
+                val recentEvent = usageStatsList.sortedByDescending { it.lastTimeUsed }.firstOrNull()
+
+                recentEvent?.packageName
+            }
+            .distinctUntilChanged()
+            .filter { true }
+            .map { it }
     }
 
     private fun getForegroundObservableLowerLollipop(): Flowable<String> {
