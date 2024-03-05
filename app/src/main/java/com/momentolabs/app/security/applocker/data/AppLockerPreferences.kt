@@ -16,6 +16,15 @@ class AppLockerPreferences @Inject constructor(context: Context) {
 
     fun getHiddenDrawingMode(): Boolean = sharedPref.getBoolean(KEY_IS_PATTERN_HIDDEN, false)
 
+    fun setLanguage(language: String) {
+        with(sharedPref.edit()) {
+            putString(KEY_LANGUAGE, language)
+            apply()
+        }
+    }
+
+    fun getLanguage(): String? = sharedPref.getString(KEY_LANGUAGE, "en")
+
     fun setFingerPrintEnable(fingerPrintEnabled: Boolean) {
         with(sharedPref.edit()) {
             putBoolean(KEY_IS_FINGERPRINT_ENABLE, fingerPrintEnabled)
@@ -73,6 +82,7 @@ class AppLockerPreferences @Inject constructor(context: Context) {
         private const val PREFERENCES_NAME = "AppLockerPreferences"
 
         private const val KEY_IS_PATTERN_HIDDEN = "KEY_IS_PATTERN_HIDDEN"
+        private const val KEY_LANGUAGE = "KEY_LANGUAGE"
 
         private const val KEY_IS_FINGERPRINT_ENABLE = "KEY_IS_FINGERPRINT_ENABLE"
 

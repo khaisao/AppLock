@@ -2,14 +2,12 @@ package com.momentolabs.app.security.applocker.ui.language
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.data.Language
-import com.momentolabs.app.security.applocker.databinding.ItemBackgroundGradientBinding
 import com.momentolabs.app.security.applocker.databinding.ItemLanguageBinding
 
-class LanguageAdapter : RecyclerView.Adapter<LanguageAdapter.LanguageItemViewHolder>() {
+class LanguageAdapter(val onClickRadioButton: (language: Language) -> Unit) :
+    RecyclerView.Adapter<LanguageAdapter.LanguageItemViewHolder>() {
 
     private val languageList = arrayListOf<Language>()
 
@@ -19,38 +17,31 @@ class LanguageAdapter : RecyclerView.Adapter<LanguageAdapter.LanguageItemViewHol
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        LanguageItemViewHolder.create(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LanguageItemViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ItemLanguageBinding.inflate(inflater, parent, false)
+        return LanguageItemViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = languageList.size
 
     override fun onBindViewHolder(holder: LanguageItemViewHolder, position: Int) =
         holder.bind(languageList[position])
 
-    class LanguageItemViewHolder(
+    inner class LanguageItemViewHolder(
         val binding: ItemLanguageBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(language: Language) {
             binding.tvContentLanguage.text = language.content
             binding.rbChooseLanguage.isChecked = language.isChecked
+            binding.ivIconLanguage.setImageResource(language.iconSource)
+            binding.rbChooseLanguage.setOnClickListener {
+                onClickRadioButton.invoke(language)
+            }
             binding.executePendingBindings()
         }
 
-        companion object {
-            fun create(
-                parent: ViewGroup
-            ): LanguageItemViewHolder {
-                val binding: ItemLanguageBinding = DataBindingUtil
-                    .inflate(
-                        LayoutInflater.from(parent.context),
-                        R.layout.item_language,
-                        parent,
-                        false
-                    )
-                return LanguageItemViewHolder(binding)
-            }
-        }
     }
 }
 
