@@ -15,6 +15,7 @@ import com.momentolabs.app.security.applocker.ui.callblocker.blacklist.BlackList
 import com.momentolabs.app.security.applocker.ui.callblocker.blacklist.delete.BlackListItemDeleteViewModel
 import com.momentolabs.app.security.applocker.ui.callblocker.log.CallLogViewModel
 import com.momentolabs.app.security.applocker.ui.intruders.IntrudersPhotosViewModel
+import com.momentolabs.app.security.applocker.ui.language.LanguageViewModel
 import com.momentolabs.app.security.applocker.ui.main.MainViewModel
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternViewModel
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationViewModel
@@ -124,6 +125,11 @@ internal abstract class ViewModelModule {
     @Binds
     @ViewModelKey(CallBlockerViewModel::class)
     abstract fun provideCallBlockerViewModel(callBlockerViewModel: CallBlockerViewModel): ViewModel
+
+    @IntoMap
+    @Binds
+    @ViewModelKey(LanguageViewModel::class)
+    abstract fun provideLanguageViewModel(languageViewModel: LanguageViewModel): ViewModel
 
     @IntoMap
     @Binds

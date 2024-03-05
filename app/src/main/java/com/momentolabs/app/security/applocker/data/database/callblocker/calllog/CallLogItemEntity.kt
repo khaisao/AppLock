@@ -7,8 +7,8 @@ import java.util.*
 
 @Entity(tableName = "call_log")
 data class CallLogItemEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "log_id") val logId: Int = 0,
-    @ColumnInfo(name = "call_log_time") val logDate: Date = Date(),
-    @ColumnInfo(name = "user_name") val userName: String = "",
-    @ColumnInfo(name = "phone_number") val phoneNumber: String = ""
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "log_id") var logId: Int = 0,
+    @ColumnInfo(name = "call_log_time") var logDate: Date = Date(),
+    @ColumnInfo(name = "user_name") var userName: String = "",
+    @ColumnInfo(name = "phone_number") var phoneNumber: String = ""
 )

@@ -15,6 +15,7 @@ import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.ActivityMainBinding
 import com.momentolabs.app.security.applocker.service.MyAccessibilityService
 import com.momentolabs.app.security.applocker.ui.BaseActivity
+import com.momentolabs.app.security.applocker.ui.language.LanguageActivity
 import com.momentolabs.app.security.applocker.ui.main.analytics.MainActivityAnalytics
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActivity
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
@@ -85,6 +86,7 @@ class MainActivity : BaseActivity<MainViewModel>(),
             R.id.nav_share -> startActivity(NavigationIntentHelper.getShareAppIntent())
             R.id.nav_rate_us -> startActivity(NavigationIntentHelper.getRateAppIntent())
             R.id.nav_feedback -> startActivity(NavigationIntentHelper.getFeedbackIntent())
+            R.id.nav_language -> startActivity(Intent(this, LanguageActivity::class.java))
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

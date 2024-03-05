@@ -5,6 +5,7 @@ import com.momentolabs.app.security.applocker.ui.background.BackgroundsActivity
 import com.momentolabs.app.security.applocker.ui.browser.BrowserActivity
 import com.momentolabs.app.security.applocker.ui.callblocker.CallBlockerActivity
 import com.momentolabs.app.security.applocker.ui.intruders.IntrudersPhotosActivity
+import com.momentolabs.app.security.applocker.ui.language.LanguageActivity
 import com.momentolabs.app.security.applocker.ui.main.MainActivity
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActivity
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
@@ -26,6 +27,10 @@ abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])
     abstract fun backgroundActivity(): BackgroundsActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])
+    abstract fun languageActivity(): LanguageActivity
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])

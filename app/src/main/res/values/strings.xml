@@ -190,5 +190,7 @@
     <string name="detect_launched_app">Detect Launched App</string>
     <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">Permit to detect wich app is launched by granting access to usage statistics</string>
     <string name="go_to_setting">Go to setting</string>
+    <string name="language">Language</string>
+    <string name="select_languages">Select Languages</string>
 
 </resources>
