@@ -1,2 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">보안박스</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="action_settings">설정</string>
+
+    <!-- AD unit ids-->
+    <string name="mobile_ad_id" translatable="false">ca-app-pub-7878654882882088~4416828367</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/5538338345</string>
+    <string name="overlay_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/8597237218</string>
+    <string name="dashboard_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/9894092735</string>
+
+
+    <string name="share">공유하다</string>
+    <string name="rate">우리를 평가해 주세요</string>
+    <string name="feedback">피드백</string>
+
+    <string name="app_security_description">앱 잠금 권장</string>
+
+    <string name="notification_protecting_title">앱 보호</string>
+
+    <string name="notification_protecting_description">개인정보를 보호하려면 앱을 잠그세요.</string>
+
+    <string name="notification_permission_need_title">보호 권한 활성화</string>
+
+    <string name="notification_permission_need_description">앱 보관함을 사용하려면 권한을 활성화해 주세요.</string>
+    <string name="you_accept_privacy_policy">계속하면 다음에 동의하는 것으로 간주됩니다.<u>개인 정보 정책</u>
+    </string>
+
+    <string name="header_recommended_to_lock">잠그는 것이 좋습니다</string>
+    <string name="header_all_apps">모든 애플리케이션</string>
+
+    <string name="title_general_settings">일반적인</string>
+
+    <!-- Security -->
+    <string name="title_lock_all">모두 잠금</string>
+    <string name="description_lock_all">이렇게 하면 모든 앱이 잠깁니다.</string>
+
+    <!-- Settings -->
+    <string name="title_unlock_all">모두 잠금 해제</string>
+
+    <string name="description_unlock_all">그러면 모든 앱이 잠금 해제됩니다.</string>
+    <string name="settings_change_pattern_title">패턴 변경</string>
+
+    <string name="settings_change_pattern_description">기존 패턴 변경</string>
+    <string name="message_pattern_changed">패턴이 성공적으로 변경되었습니다.</string>
+
+    <string name="setting_in_stealth_mode_title">그림 숨기기</string>
+    <string name="setting_in_stealth_mode_description">그리는 동안 보이지 않는 패턴</string>
+    <string name="setting_fingerprint_title">지문 활성화</string>
+
+    <string name="setting_fingerprint_description">지문으로 앱을 실행하세요.</string>
+    <string name="setting_fingerprint_not_supported_title">지문은 지원되지 않습니다</string>
+
+    <string name="setting_fingerprint_not_supported_description">귀하의 기기에는 센서가 없습니다</string>
+    <string name="setting_fingerprint_not_registered_title">지문을 등록하세요</string>
+
+    <string name="setting_fingerprint_not_registered_description">보안 설정으로 이동</string>
+    <string name="next">다음</string>
+
+    <string name="permission_usage_access_title">이용접근권한</string>
+    <string name="permission_usage_access_description">앱 보관함을 사용하려면 사용 액세스를 활성화하세요.</string>
+
+    <string name="permission_overlay_title">잠금 화면 권한</string>
+
+    <string name="settings_card_intruders_title">침입자를 잡아라</string>
+    <string name="settings_enable_intruders_title">침입자 사진 찍기</string>
+    <string name="settings_enable_intruders_description">침입자를 잡을 수 있습니다.</string>
+
+    <string name="settings_intruders_folder_title">적발된 침입자 사진</string>
+    <string name="settings_intruders_folder_description">귀하의 휴대전화에 있는 스파이를 보려면 클릭하세요.</string>
+
+    <!-- Permissions activity -->
+
+    <string name="permission_overlay_description">잠금 화면을 표시하려면 오버레이를 활성화하세요.</string>
+    <string name="permission_toast_enable_permissions">앱 보관함을 사용하려면 권한을 활성화하세요.</string>
+
+    <string name="draw_pattern_title">새 패턴 만들기</string>
+    <string name="redraw_pattern_title">다시 그려서 완료</string>
+
+    <string name="recreate_pattern_error">패턴이 일치하지 않습니다. 다시 그립니다.</string>
+
+    <string name="create_pattern_successful">성공적으로 생성되었습니다.</string>
+    <string name="overlay_prompt_pattern_title">패턴을 그려 앱을 여세요</string>
+    <string name="overlay_prompt_pattern_title_wrong">잘못된 패턴입니다. 다시 그립니다.</string>
+    <string name="overlay_prompt_pattern_title_correct">패턴이 맞습니다.</string>
+
+    <string name="overlay_prompt_fingerprint_title">패턴을 그려 앱을 여세요</string>
+    <string name="overlay_prompt_fingerprint_title_wrong">일치하지 않습니다. %1$s 남았습니다.</string>
+    <string name="overlay_prompt_fingerprint_title_correct">지문 일치!</string>
+
+    <string name="overlay_prompt_fingerprint_title_error">지문 오류! 패턴을 시도해 보세요.</string>
+    <string name="dialog_title_rate_us">SecureBox가 마음에 드시나요\?</string>
+    <string name="dialog_description_rate_us">시장에서 우리를 평가해 주시면 매우 기쁠 것입니다.</string>
+    <string name="dialog_action_rate_us_rate">비율</string>
+
+    <string name="dialog_action_rate_us_later">나중에</string>
+    <string name="dialog_title_usage_permission">안드로이드 5.0 권한</string>
+    <string name="dialog_description_usage_permission">Android 5.0 이상에서는 다음에 대한 사용 접근을 허용해야 합니다.
+        SecureBox 기능을 사용할 수 있도록 AppLocker</string>
+    <string name="dialog_action_usage_permission_permit">허용하다</string>
+
+    <string name="dialog_action_usage_permission_cancel">취소</string>
+    <string name="dialog_title_privacy_policy">개인 정보 정책</string>
+    <string name="dialog_description_privacy_policy">개인 정보 보호 정책을 업데이트했습니다. 계속하면 다음에 동의하는 것으로 간주됩니다.<u>개인 정보 정책</u>
+    </string>
+    <string name="dialog_action_privacy_policy_accept">수용하다</string>
+
+    <string name="title_main_browser">브라우저</string>
+    <string name="title_main_background">주제</string>
+    <string name="title_main_vault">둥근 천장</string>
+
+    <string name="title_main_call_blocker">차단제</string>
+    <string name="backgrounds">배경</string>
+    <string name="hint_browser_search">URL 검색 또는 입력</string>
+    <string name="facebook">페이스북</string>
+
+    <string name="twitter">트위터</string>
+
+    <!-- Browser Activity texts -->
+    <string name="instagram">인스 타 그램</string>
+    <string name="youtube">유튜브</string>
+    <string name="title_browser_empty">안전하고 안전하며 비공개입니다.</string>
+    <string name="subtitle_browser_empty">인터넷 서핑. 안전하게.</string>
+    <string name="bookmarks">북마크</string>
+    <string name="under_development">개발중인. 곧 출시될 예정입니다.</string>
+    <string name="title_call_blocker">통화 차단기</string>
+    <string name="title_name_unknown_number">알 수없는 번호</string>
+
+    <string name="call_blocker_fab_description">블록 번호</string>
+
+
+    <!-- Call Blocker Activity texts -->
+    <string name="blacklist_empty_title">블랙리스트가 비어 있습니다</string>
+    <string name="blacklist_empty_description">전화번호를 차단하려면 +를 클릭하세요.</string>
+    <string name="call_log_empty_title">로그 없음</string>
+
+    <string name="call_log_empty_description">통화가 차단되면 여기에 로그가 표시됩니다.</string>
+    <string name="dialog_add_to_blacklist_title">전화번호 차단</string>
+
+    <string name="dialog_add_to_blacklist_name_hint">이름(선택사항)</string>
+    <string name="dialog_add_to_blacklist_phone_hint">전화번호를 입력하세요</string>
+
+    <string name="dialog_add_to_blacklist_action_block">차단하다</string>
+    <string name="dialog_add_to_blacklist_action_cancel">취소</string>
+    <string name="dialog_black_list_delete_title">블랙리스트에서 삭제</string>
+    <string name="dialog_black_list_delete_description">블랙리스트에서 차단번호를 제거하시겠습니까\?</string>
+    <string name="dialog_black_list_delete_action_delete">삭제</string>
+
+    <string name="dialog_black_list_delete_action_cancel">취소</string>
+    <string name="dialog_title_add_to_vault">처리</string>
+    <string name="dialog_description_process">미디어가 갤러리에서 제거되고 저장소에 추가되고 있습니다.</string>
+    <string name="dialog_action_process" translatable="false">%d%%</string>
+
+    <string name="dialog_title_removal_confirmation">제거 확인</string>
+    <string name="dialog_description_removal">이 파일은 Vault에서 제거되어 갤러리에 표시됩니다.</string>
+    <string name="dialog_action_removal_confirmation_accept">수용하다</string>
+
+    <string name="vault_photo_empty_page_title">사진 보관소가 비어 있습니다.</string>
+    <string name="vault_photo_empty_page_description">갤러리에서 사진을 숨기려면 + 아이콘을 추가하세요.</string>
+    <string name="vault_video_empty_page_title">비디오 보관소가 비어 있습니다.</string>
+
+    <string name="vault_video_empty_page_description">갤러리의 비디오 사진에 + 아이콘 추가</string>
+    <string-array name="tabs">
+        <item>보안</item>
+        <item>설정</item>
+    </string-array>
+
+    <string-array name="call_blocker_tabs">
+        <item>블랙리스트</item>
+        <item>통화 기록</item>
+    </string-array>
+    <string-array name="vault_tabs">
+        <item>이미지</item>
+        <item>비디오</item>
+    </string-array>
+
+    <!-- Intruders Photo Activity -->
+    <string name="title_intruders_photos">침입자 사진</string>
+    <string name="empty_page_intruders_title">침입자가 잡히지 않았습니다</string>
+    <string name="empty_page_intruders_description">귀하의 휴대전화는 안전합니다!</string>
+    <string name="accessibility_service_description">카이앱잠금</string>
+    <string name="accessibility_service_label">khai_app_lock_label</string>
+    <string name="permissions_required">필요한 권한</string>
+    <string name="show_over_other_apps">다른 앱 위에 표시</string>
+    <string name="allow_lock_screen_to_show_over_other_apps">잠금 화면이 다른 앱 위에 표시되도록 허용</string>
+    <string name="detect_launched_app">출시된 앱 감지</string>
+    <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">사용 통계에 대한 액세스 권한을 부여하여 어떤 앱이 실행되는지 감지하도록 허용합니다.</string>
+    <string name="go_to_setting">설정으로 이동</string>
+    <string name="language">언어</string>
+    <string name="select_languages">언어 선택</string>
+
+</resources>

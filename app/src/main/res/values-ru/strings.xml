@@ -1,2 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Безопасный ящик</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="action_settings">Настройки</string>
+
+    <!-- AD unit ids-->
+    <string name="mobile_ad_id" translatable="false">ca-app-pub-7878654882882088~4416828367</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/5538338345</string>
+    <string name="overlay_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/8597237218</string>
+    <string name="dashboard_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/9894092735</string>
+
+
+    <string name="share">Делиться</string>
+    <string name="rate">Оцените нас</string>
+    <string name="feedback">Обратная связь</string>
+
+    <string name="app_security_description">Рекомендуется заблокировать приложение.</string>
+
+    <string name="notification_protecting_title">Защита ваших приложений</string>
+
+    <string name="notification_protecting_description">Заблокируйте свои приложения, чтобы защитить вашу конфиденциальность.</string>
+
+    <string name="notification_permission_need_title">Включить разрешение на защиту</string>
+
+    <string name="notification_permission_need_description">Пожалуйста, включите разрешения на использование шкафчика приложений.</string>
+    <string name="you_accept_privacy_policy">Продолжая, вы соглашаетесь с<u>политика конфиденциальности</u>
+    </string>
+
+    <string name="header_recommended_to_lock">Рекомендуется заблокировать</string>
+    <string name="header_all_apps">Все приложения</string>
+
+    <string name="title_general_settings">Общий</string>
+
+    <!-- Security -->
+    <string name="title_lock_all">Заблокировать все</string>
+    <string name="description_lock_all">Это заблокирует все ваши приложения.</string>
+
+    <!-- Settings -->
+    <string name="title_unlock_all">Разблокировать все</string>
+
+    <string name="description_unlock_all">Это разблокирует все ваши приложения.</string>
+    <string name="settings_change_pattern_title">Изменить шаблон</string>
+
+    <string name="settings_change_pattern_description">Измените существующий шаблон</string>
+    <string name="message_pattern_changed">Шаблон успешно изменен</string>
+
+    <string name="setting_in_stealth_mode_title">Скрыть рисунок</string>
+    <string name="setting_in_stealth_mode_description">Невидимый узор во время рисования</string>
+    <string name="setting_fingerprint_title">Включить отпечаток пальца</string>
+
+    <string name="setting_fingerprint_description">Запустите приложение с помощью отпечатка пальца.</string>
+    <string name="setting_fingerprint_not_supported_title">Отпечаток пальца не поддерживается</string>
+
+    <string name="setting_fingerprint_not_supported_description">На вашем устройстве нет датчика</string>
+    <string name="setting_fingerprint_not_registered_title">Зарегистрируйте свой отпечаток пальца</string>
+
+    <string name="setting_fingerprint_not_registered_description">Зайдите в настройки безопасности</string>
+    <string name="next">Следующий</string>
+
+    <string name="permission_usage_access_title">Разрешение на использование</string>
+    <string name="permission_usage_access_description">Включите доступ к использованию, чтобы использовать шкафчик приложений.</string>
+
+    <string name="permission_overlay_title">Разрешение блокировки экрана</string>
+
+    <string name="settings_card_intruders_title">Поймать злоумышленников</string>
+    <string name="settings_enable_intruders_title">Сфотографировать злоумышленников</string>
+    <string name="settings_enable_intruders_description">Включите возможность ловить злоумышленников.</string>
+
+    <string name="settings_intruders_folder_title">Пойманные фотографии злоумышленников</string>
+    <string name="settings_intruders_folder_description">Нажмите, чтобы увидеть шпионов на вашем телефоне.</string>
+
+    <!-- Permissions activity -->
+
+    <string name="permission_overlay_description">Включите наложение, чтобы показать экран блокировки.</string>
+    <string name="permission_toast_enable_permissions">Включите разрешения на использование шкафчика приложений</string>
+
+    <string name="draw_pattern_title">Создайте новый узор</string>
+    <string name="redraw_pattern_title">Перерисовать, чтобы завершить</string>
+
+    <string name="recreate_pattern_error">Рисунок не соответствует. Перерисовать.</string>
+
+    <string name="create_pattern_successful">Успешно создано.</string>
+    <string name="overlay_prompt_pattern_title">Нарисуйте шаблон, чтобы открыть приложение</string>
+    <string name="overlay_prompt_pattern_title_wrong">Неправильный шаблон. Нарисуйте еще раз.</string>
+    <string name="overlay_prompt_pattern_title_correct">Узор правильный.</string>
+
+    <string name="overlay_prompt_fingerprint_title">Нарисуйте шаблон, чтобы открыть приложение</string>
+    <string name="overlay_prompt_fingerprint_title_wrong">Не совпадает. Осталось %1$s.</string>
+    <string name="overlay_prompt_fingerprint_title_correct">Отпечаток пальца совпал!</string>
+
+    <string name="overlay_prompt_fingerprint_title_error">Ошибка отпечатка пальца! Попробуйте шаблон.</string>
+    <string name="dialog_title_rate_us">Вам понравился SecureBox\?</string>
+    <string name="dialog_description_rate_us">Мы будем очень рады, если вы оцените нас на рынке.</string>
+    <string name="dialog_action_rate_us_rate">Ставка</string>
+
+    <string name="dialog_action_rate_us_later">Позже</string>
+    <string name="dialog_title_usage_permission">Разрешение Android 5.0</string>
+    <string name="dialog_description_usage_permission">В Android 5.0 или более поздней версии вам необходимо разрешить доступ к использованию для
+        AppLocker, чтобы вы могли использовать функцию SecureBox</string>
+    <string name="dialog_action_usage_permission_permit">Разрешать</string>
+
+    <string name="dialog_action_usage_permission_cancel">Отмена</string>
+    <string name="dialog_title_privacy_policy">политика конфиденциальности</string>
+    <string name="dialog_description_privacy_policy">Мы обновили нашу политику конфиденциальности. Продолжая, вы соглашаетесь с<u>политика конфиденциальности</u>
+    </string>
+    <string name="dialog_action_privacy_policy_accept">Принимать</string>
+
+    <string name="title_main_browser">Браузер</string>
+    <string name="title_main_background">Тема</string>
+    <string name="title_main_vault">Сейф</string>
+
+    <string name="title_main_call_blocker">Блокатор</string>
+    <string name="backgrounds">Фоны</string>
+    <string name="hint_browser_search">Найдите или введите URL-адрес</string>
+    <string name="facebook">Фейсбук</string>
+
+    <string name="twitter">Твиттер</string>
+
+    <!-- Browser Activity texts -->
+    <string name="instagram">Инстаграм</string>
+    <string name="youtube">YouTube</string>
+    <string name="title_browser_empty">Безопасный.Безопасный.Частный.</string>
+    <string name="subtitle_browser_empty">Серфинг в Интернете. Надежно.</string>
+    <string name="bookmarks">Закладки</string>
+    <string name="under_development">В разработке. Скоро будет доступно.</string>
+    <string name="title_call_blocker">Блокировщик вызовов</string>
+    <string name="title_name_unknown_number">Неизвестный номер</string>
+
+    <string name="call_blocker_fab_description">Номер блока</string>
+
+
+    <!-- Call Blocker Activity texts -->
+    <string name="blacklist_empty_title">Черный список пуст</string>
+    <string name="blacklist_empty_description">Нажмите +, чтобы заблокировать номер телефона</string>
+    <string name="call_log_empty_title">Нет журналов</string>
+
+    <string name="call_log_empty_description">Здесь появляется журнал, когда вызов заблокирован</string>
+    <string name="dialog_add_to_blacklist_title">Заблокировать номер телефона</string>
+
+    <string name="dialog_add_to_blacklist_name_hint">Имя (необязательно)</string>
+    <string name="dialog_add_to_blacklist_phone_hint">Введите номер телефона</string>
+
+    <string name="dialog_add_to_blacklist_action_block">Блокировать</string>
+    <string name="dialog_add_to_blacklist_action_cancel">Отмена</string>
+    <string name="dialog_black_list_delete_title">Удалить из черного списка</string>
+    <string name="dialog_black_list_delete_description">Хотите удалить заблокированный номер из черного списка\?</string>
+    <string name="dialog_black_list_delete_action_delete">Удалить</string>
+
+    <string name="dialog_black_list_delete_action_cancel">Отмена</string>
+    <string name="dialog_title_add_to_vault">Обработка</string>
+    <string name="dialog_description_process">Ваши медиафайлы удаляются из галереи и добавляются в хранилище.</string>
+    <string name="dialog_action_process" translatable="false">%d%%</string>
+
+    <string name="dialog_title_removal_confirmation">Подтверждение удаления</string>
+    <string name="dialog_description_removal">Этот файл будет удален из хранилища и отобразится в галерее.</string>
+    <string name="dialog_action_removal_confirmation_accept">Принимать</string>
+
+    <string name="vault_photo_empty_page_title">Фотохранилище пусто</string>
+    <string name="vault_photo_empty_page_description">Добавьте значок +, чтобы скрыть фотографии из галереи.</string>
+    <string name="vault_video_empty_page_title">Видеохранилище пусто</string>
+
+    <string name="vault_video_empty_page_description">Добавить значок + к видео фотографиям из галереи</string>
+    <string-array name="tabs">
+        <item>Безопасность</item>
+        <item>Настройки</item>
+    </string-array>
+
+    <string-array name="call_blocker_tabs">
+        <item>Черный список</item>
+        <item>Журналы вызовов</item>
+    </string-array>
+    <string-array name="vault_tabs">
+        <item>Изображений</item>
+        <item>Видео</item>
+    </string-array>
+
+    <!-- Intruders Photo Activity -->
+    <string name="title_intruders_photos">Фотографии злоумышленников</string>
+    <string name="empty_page_intruders_title">Злоумышленники не пойманы</string>
+    <string name="empty_page_intruders_description">Ваш телефон в безопасности!</string>
+    <string name="accessibility_service_description">ХайAppLock</string>
+    <string name="accessibility_service_label">khai_app_lock_label</string>
+    <string name="permissions_required">Требуются разрешения</string>
+    <string name="show_over_other_apps">Показать поверх других приложений</string>
+    <string name="allow_lock_screen_to_show_over_other_apps">Разрешить показ экрана блокировки поверх других приложений</string>
+    <string name="detect_launched_app">Обнаружить запущенное приложение</string>
+    <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">Разрешить определять, какое приложение запущено, предоставив доступ к статистике использования.</string>
+    <string name="go_to_setting">Перейти к настройке</string>
+    <string name="language">Язык</string>
+    <string name="select_languages">Выберите языки</string>
+
+</resources>

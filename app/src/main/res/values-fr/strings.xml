@@ -1,2 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Boîte sécurisée</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="action_settings">Paramètres</string>
+
+    <!-- AD unit ids-->
+    <string name="mobile_ad_id" translatable="false">ca-app-pub-7878654882882088~4416828367</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/5538338345</string>
+    <string name="overlay_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/8597237218</string>
+    <string name="dashboard_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/9894092735</string>
+
+
+    <string name="share">Partager</string>
+    <string name="rate">Évaluez nous</string>
+    <string name="feedback">Retour</string>
+
+    <string name="app_security_description">Recommandé pour verrouiller l\'application</string>
+
+    <string name="notification_protecting_title">Protéger vos applications</string>
+
+    <string name="notification_protecting_description">Verrouillez vos applications pour protéger votre vie privée.</string>
+
+    <string name="notification_permission_need_title">Activer l\'autorisation de protection</string>
+
+    <string name="notification_permission_need_description">Veuillez activer vos autorisations pour utiliser le casier d\'application.</string>
+    <string name="you_accept_privacy_policy">En continuant, vous acceptez le<u>politique de confidentialité</u>
+    </string>
+
+    <string name="header_recommended_to_lock">Recommandé pour verrouiller</string>
+    <string name="header_all_apps">Toutes les candidatures</string>
+
+    <string name="title_general_settings">Général</string>
+
+    <!-- Security -->
+    <string name="title_lock_all">Verrouiller tout</string>
+    <string name="description_lock_all">Cela verrouillera toutes vos applications</string>
+
+    <!-- Settings -->
+    <string name="title_unlock_all">Débloqué tout</string>
+
+    <string name="description_unlock_all">Cela débloquera toutes vos applications</string>
+    <string name="settings_change_pattern_title">Changer de modèle</string>
+
+    <string name="settings_change_pattern_description">Changez votre modèle existant</string>
+    <string name="message_pattern_changed">Le modèle a été modifié avec succès</string>
+
+    <string name="setting_in_stealth_mode_title">Masquer le dessin</string>
+    <string name="setting_in_stealth_mode_description">Motif invisible pendant le dessin</string>
+    <string name="setting_fingerprint_title">Activer l\'empreinte digitale</string>
+
+    <string name="setting_fingerprint_description">Lancez l\'application avec votre empreinte digitale.</string>
+    <string name="setting_fingerprint_not_supported_title">L\'empreinte digitale n\'est pas prise en charge</string>
+
+    <string name="setting_fingerprint_not_supported_description">Votre appareil n\'a pas de capteur</string>
+    <string name="setting_fingerprint_not_registered_title">Enregistrez votre empreinte digitale</string>
+
+    <string name="setting_fingerprint_not_registered_description">Accédez aux paramètres de sécurité</string>
+    <string name="next">Suivant</string>
+
+    <string name="permission_usage_access_title">Autorisation d\'accès à l\'utilisation</string>
+    <string name="permission_usage_access_description">Activez l\'accès à l\'utilisation pour utiliser le casier d\'application.</string>
+
+    <string name="permission_overlay_title">Autorisation de l\'écran de verrouillage</string>
+
+    <string name="settings_card_intruders_title">Attraper les intrus</string>
+    <string name="settings_enable_intruders_title">Prendre une photo des intrus</string>
+    <string name="settings_enable_intruders_description">Permet d\'attraper les intrus.</string>
+
+    <string name="settings_intruders_folder_title">Photos d\'intrus capturées</string>
+    <string name="settings_intruders_folder_description">Cliquez pour voir des espions sur votre téléphone.</string>
+
+    <!-- Permissions activity -->
+
+    <string name="permission_overlay_description">Activez la superposition pour afficher l\'écran de verrouillage.</string>
+    <string name="permission_toast_enable_permissions">Activer les autorisations pour utiliser le casier d\'application</string>
+
+    <string name="draw_pattern_title">Créer un nouveau motif</string>
+    <string name="redraw_pattern_title">Redessiner pour terminer</string>
+
+    <string name="recreate_pattern_error">Le motif ne correspond pas. Redessiner.</string>
+
+    <string name="create_pattern_successful">Création réussie.</string>
+    <string name="overlay_prompt_pattern_title">Dessinez un motif pour ouvrir l\'application</string>
+    <string name="overlay_prompt_pattern_title_wrong">Mauvais modèle. Dessinez à nouveau.</string>
+    <string name="overlay_prompt_pattern_title_correct">Modèle correct.</string>
+
+    <string name="overlay_prompt_fingerprint_title">Dessinez un motif pour ouvrir l\'application</string>
+    <string name="overlay_prompt_fingerprint_title_wrong">Pas adapté. Il reste %1$.</string>
+    <string name="overlay_prompt_fingerprint_title_correct">L\'empreinte digitale correspond !</string>
+
+    <string name="overlay_prompt_fingerprint_title_error"><![CDATA[Erreur d\'empreinte digitale ! Essayez le modèle.]]></string>
+    <string name="dialog_title_rate_us">Vous avez aimé SecureBox \?</string>
+    <string name="dialog_description_rate_us">Nous serons tellement heureux si vous nous évaluez sur le marché.</string>
+    <string name="dialog_action_rate_us_rate">Taux</string>
+
+    <string name="dialog_action_rate_us_later">Plus tard</string>
+    <string name="dialog_title_usage_permission">Autorisation Android 5.0</string>
+    <string name="dialog_description_usage_permission">Sous Android 5.0 ou version ultérieure, vous devez autoriser l\'accès à l\'utilisation pour
+        AppLocker, pour que vous puissiez utiliser la fonctionnalité SecureBox</string>
+    <string name="dialog_action_usage_permission_permit">Permis</string>
+
+    <string name="dialog_action_usage_permission_cancel">Annuler</string>
+    <string name="dialog_title_privacy_policy">politique de confidentialité</string>
+    <string name="dialog_description_privacy_policy">Nous avons mis à jour notre politique de confidentialité. En continuant, vous acceptez le<u>politique de confidentialité</u>
+    </string>
+    <string name="dialog_action_privacy_policy_accept">Accepter</string>
+
+    <string name="title_main_browser">Navigateur</string>
+    <string name="title_main_background">Thème</string>
+    <string name="title_main_vault">Sauter</string>
+
+    <string name="title_main_call_blocker">Bloqueur</string>
+    <string name="backgrounds">Arrière-plans</string>
+    <string name="hint_browser_search">Rechercher ou saisir une URL</string>
+    <string name="facebook">Facebook</string>
+
+    <string name="twitter">Twitter</string>
+
+    <!-- Browser Activity texts -->
+    <string name="instagram">Instagram</string>
+    <string name="youtube">Youtube</string>
+    <string name="title_browser_empty">Sûr. Sécurisé. Privé.</string>
+    <string name="subtitle_browser_empty">Surfer sur Internet. En toute sécurité.</string>
+    <string name="bookmarks">Signets</string>
+    <string name="under_development">En cours de développement. Sera disponible bientôt.</string>
+    <string name="title_call_blocker">Bloqueur appel</string>
+    <string name="title_name_unknown_number">Numéro inconnu</string>
+
+    <string name="call_blocker_fab_description">Numéro de bloc</string>
+
+
+    <!-- Call Blocker Activity texts -->
+    <string name="blacklist_empty_title">La liste noire est vide</string>
+    <string name="blacklist_empty_description">Cliquez sur + pour bloquer le numéro de téléphone</string>
+    <string name="call_log_empty_title">Aucun journal</string>
+
+    <string name="call_log_empty_description">Le journal apparaît ici lorsque l\'appel est bloqué</string>
+    <string name="dialog_add_to_blacklist_title">Bloquer le numéro de téléphone</string>
+
+    <string name="dialog_add_to_blacklist_name_hint">Nom: (optionnel)</string>
+    <string name="dialog_add_to_blacklist_phone_hint">Entrez le numéro de téléphone</string>
+
+    <string name="dialog_add_to_blacklist_action_block">Bloc</string>
+    <string name="dialog_add_to_blacklist_action_cancel">Annuler</string>
+    <string name="dialog_black_list_delete_title">Supprimer de la liste noire</string>
+    <string name="dialog_black_list_delete_description"><![CDATA[Voulez-vous supprimer le numéro bloqué de la liste noire \?]]></string>
+    <string name="dialog_black_list_delete_action_delete">Supprimer</string>
+
+    <string name="dialog_black_list_delete_action_cancel">Annuler</string>
+    <string name="dialog_title_add_to_vault">Traitement</string>
+    <string name="dialog_description_process">Votre média est supprimé de la galerie et ajouté à votre coffre-fort.</string>
+    <string name="dialog_action_process" translatable="false">%d%%</string>
+
+    <string name="dialog_title_removal_confirmation">Confirmation de suppression</string>
+    <string name="dialog_description_removal">Ce fichier sera supprimé du coffre-fort et affiché dans la galerie.</string>
+    <string name="dialog_action_removal_confirmation_accept">Accepter</string>
+
+    <string name="vault_photo_empty_page_title">Le coffre-fort de photos est vide</string>
+    <string name="vault_photo_empty_page_description">Ajouter une icône + pour masquer les photos de la galerie</string>
+    <string name="vault_video_empty_page_title">Le coffre-fort vidéo est vide</string>
+
+    <string name="vault_video_empty_page_description">Ajouter une icône + aux photos vidéo de la galerie</string>
+    <string-array name="tabs">
+        <item>Sécurité</item>
+        <item>Paramètres</item>
+    </string-array>
+
+    <string-array name="call_blocker_tabs">
+        <item>Liste noire</item>
+        <item>Journaux d\'appels</item>
+    </string-array>
+    <string-array name="vault_tabs">
+        <item>Images</item>
+        <item>Vidéos</item>
+    </string-array>
+
+    <!-- Intruders Photo Activity -->
+    <string name="title_intruders_photos">Photos des intrus</string>
+    <string name="empty_page_intruders_title">Aucun intrus attrapé</string>
+    <string name="empty_page_intruders_description"><![CDATA[Votre téléphone est sécurisé !]]></string>
+    <string name="accessibility_service_description">KhaiAppLock</string>
+    <string name="accessibility_service_label">khai_app_lock_label</string>
+    <string name="permissions_required">Autorisations requises</string>
+    <string name="show_over_other_apps">Afficher sur d\'autres applications</string>
+    <string name="allow_lock_screen_to_show_over_other_apps">Autoriser l\'écran de verrouillage à s\'afficher sur d\'autres applications</string>
+    <string name="detect_launched_app">Détecter l\'application lancée</string>
+    <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">Permettre de détecter quelle application est lancée en accordant l\'accès aux statistiques d\'utilisation</string>
+    <string name="go_to_setting">Aller au réglage</string>
+    <string name="language">Langue</string>
+    <string name="select_languages">Sélectionnez les langues</string>
+
+</resources>

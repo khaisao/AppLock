@@ -1,24 +1,193 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">सुरक्षित बॉक्स</string>
-    <string name="navigation_drawer_open" translatable="false">खुला नेविगेशन दराज</string>
-    <string name="navigation_drawer_close" translatable="false">निकट नेविगेशन दराज</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
     <string name="action_settings">समायोजन</string>
-    <string name="mobile_ad_id" translatable="false">CA-APP-PUB-7878654882882088 ~ 4416828367</string>
-    <string name="banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/5538338345</string>
-    <string name="overlay_banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/8597237218</string>
-    <string name="dashboard_banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/9894092735</string>
+
+    <!-- AD unit ids-->
+    <string name="mobile_ad_id" translatable="false">ca-app-pub-7878654882882088~4416828367</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/5538338345</string>
+    <string name="overlay_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/8597237218</string>
+    <string name="dashboard_banner_ad_unit_id" translatable="false">ca-app-pub-7878654882882088/9894092735</string>
+
+
     <string name="share">शेयर करना</string>
     <string name="rate">हमें रेटिंग दें</string>
     <string name="feedback">प्रतिक्रिया</string>
-    <string name="app_security_description">लॉक ऐप की सिफारिश की</string>
-    <string name="notification_protecting_title">अपने ऐप्स की सुरक्षा</string>
-    <string name="notification_protecting_description">अपनी गोपनीयता की सुरक्षा के लिए अपने ऐप्स को लॉक करें।</string>
-    <string name="notification_permission_need_title">सुरक्षा के लिए अनुमति सक्षम करें</string>
-    <string name="notification_permission_need_description">कृपया ऐप लॉकर का उपयोग करने के लिए अपनी अनुमतियों को सक्षम करें।</string>
-    <string name="header_recommended_to_lock">ताला लगाने की सिफारिश की</string>
+
+    <string name="app_security_description">ऐप को लॉक करने का सुझाव दिया गया</string>
+
+    <string name="notification_protecting_title">आपके ऐप्स की सुरक्षा करना</string>
+
+    <string name="notification_protecting_description">अपनी गोपनीयता की सुरक्षा के लिए अपने ऐप्स लॉक करें।</string>
+
+    <string name="notification_permission_need_title">सुरक्षा की अनुमति सक्षम करें</string>
+
+    <string name="notification_permission_need_description">कृपया ऐप लॉकर का उपयोग करने के लिए अपनी अनुमतियां सक्षम करें।</string>
+    <string name="you_accept_privacy_policy">जारी रखकर आप सहमत हैं<u>गोपनीयता नीति</u>
+    </string>
+
+    <string name="header_recommended_to_lock">लॉक करने की अनुशंसा की गई</string>
     <string name="header_all_apps">सभी अनुप्रयोग</string>
+
     <string name="title_general_settings">सामान्य</string>
+
+    <!-- Security -->
     <string name="title_lock_all">सभी को बंद कर दो</string>
-    <string name="description_lock_all">यह आपके सभी ऐप्स को लॉक कर देगा</string>
+    <string name="description_lock_all">इससे आपके सभी ऐप्स लॉक हो जाएंगे</string>
+
+    <!-- Settings -->
+    <string name="title_unlock_all">सबको अनलॉक करें</string>
+
+    <string name="description_unlock_all">इससे आपके सभी ऐप्स अनलॉक हो जाएंगे</string>
+    <string name="settings_change_pattern_title">पैटर्न बदलें</string>
+
+    <string name="settings_change_pattern_description">अपना मौजूदा पैटर्न बदलें</string>
+    <string name="message_pattern_changed">पैटर्न सफलतापूर्वक बदला गया</string>
+
+    <string name="setting_in_stealth_mode_title">ड्राइंग छिपाएँ</string>
+    <string name="setting_in_stealth_mode_description">ड्राइंग करते समय अदृश्य पैटर्न</string>
+    <string name="setting_fingerprint_title">फ़िंगरप्रिंट सक्षम करें</string>
+
+    <string name="setting_fingerprint_description">अपने फ़िंगरप्रिंट से ऐप लॉन्च करें.</string>
+    <string name="setting_fingerprint_not_supported_title">फ़िंगरप्रिंट समर्थित नहीं है</string>
+
+    <string name="setting_fingerprint_not_supported_description">आपके डिवाइस में सेंसर नहीं है</string>
+    <string name="setting_fingerprint_not_registered_title">अपना फ़िंगरप्रिंट पंजीकृत करें</string>
+
+    <string name="setting_fingerprint_not_registered_description">सुरक्षा सेटिंग्स पर जाएँ</string>
+    <string name="next">अगला</string>
+
+    <string name="permission_usage_access_title">उपयोग पहुंच अनुमति</string>
+    <string name="permission_usage_access_description">ऐप लॉकर का उपयोग करने के लिए उपयोग पहुंच सक्षम करें।</string>
+
+    <string name="permission_overlay_title">लॉक स्क्रीन अनुमति</string>
+
+    <string name="settings_card_intruders_title">घुसपैठियों को पकड़ो</string>
+    <string name="settings_enable_intruders_title">घुसपैठियों की तस्वीर लें</string>
+    <string name="settings_enable_intruders_description">घुसपैठियों को पकड़ने में सक्षम करें.</string>
+
+    <string name="settings_intruders_folder_title">घुसपैठिए की तस्वीरें खींची गईं</string>
+    <string name="settings_intruders_folder_description">अपने फ़ोन पर जासूसों को देखने के लिए क्लिक करें।</string>
+
+    <!-- Permissions activity -->
+
+    <string name="permission_overlay_description">लॉक स्क्रीन दिखाने के लिए ओवरले सक्षम करें।</string>
+    <string name="permission_toast_enable_permissions">ऐप लॉकर का उपयोग करने की अनुमतियाँ सक्षम करें</string>
+
+    <string name="draw_pattern_title">एक नया पैटर्न बनाएं</string>
+    <string name="redraw_pattern_title">पूरा करने के लिए पुनः बनाएं</string>
+
+    <string name="recreate_pattern_error">पैटर्न मेल नहीं खाता. पुनः बनाएं।</string>
+
+    <string name="create_pattern_successful">सफलतापूर्वक बनाया गया.</string>
+    <string name="overlay_prompt_pattern_title">ऐप खोलने के लिए पैटर्न बनाएं</string>
+    <string name="overlay_prompt_pattern_title_wrong">ग़लत पैटर्न. फिर से ड्रा करें.</string>
+    <string name="overlay_prompt_pattern_title_correct">पैटर्न सही.</string>
+
+    <string name="overlay_prompt_fingerprint_title">ऐप खोलने के लिए पैटर्न बनाएं</string>
+    <string name="overlay_prompt_fingerprint_title_wrong">मिलान नहीं। %1$s शेष।</string>
+    <string name="overlay_prompt_fingerprint_title_correct">फ़िंगरप्रिंट का मिलान हुआ!</string>
+
+    <string name="overlay_prompt_fingerprint_title_error">फ़िंगरप्रिंट त्रुटि! पैटर्न आज़माएं.</string>
+    <string name="dialog_title_rate_us">क्या आपको सिक्योरबॉक्स पसंद आया\?</string>
+    <string name="dialog_description_rate_us">यदि आप हमें बाजार के आधार पर रेटिंग देंगे तो हमें बहुत खुशी होगी।</string>
+    <string name="dialog_action_rate_us_rate">दर</string>
+
+    <string name="dialog_action_rate_us_later">बाद में</string>
+    <string name="dialog_title_usage_permission">एंड्रॉइड 5.0 अनुमति</string>
+    <string name="dialog_description_usage_permission">एंड्रॉइड 5.0 या उससे ऊपर के संस्करण में, आपको उपयोग की अनुमति की आवश्यकता होगी
+        ऐपलॉकर, ताकि आप सिक्योरबॉक्स फीचर का उपयोग कर सकें</string>
+    <string name="dialog_action_usage_permission_permit">आज्ञा देना</string>
+
+    <string name="dialog_action_usage_permission_cancel">रद्द करना</string>
+    <string name="dialog_title_privacy_policy">गोपनीयता नीति</string>
+    <string name="dialog_description_privacy_policy">हमने अपनी गोपनीयता नीति अपडेट कर दी है. जारी रखकर आप सहमत हैं<u>गोपनीयता नीति</u>
+    </string>
+    <string name="dialog_action_privacy_policy_accept">स्वीकार करना</string>
+
+    <string name="title_main_browser">ब्राउज़र</string>
+    <string name="title_main_background">विषय</string>
+    <string name="title_main_vault">मेहराब</string>
+
+    <string name="title_main_call_blocker">अवरोधक</string>
+    <string name="backgrounds">पृष्ठभूमि</string>
+    <string name="hint_browser_search">यूआरएल खोजें या दर्ज करें</string>
+    <string name="facebook">फेसबुक</string>
+
+    <string name="twitter">ट्विटर</string>
+
+    <!-- Browser Activity texts -->
+    <string name="instagram">Instagram</string>
+    <string name="youtube">यूट्यूब</string>
+    <string name="title_browser_empty">सुरक्षित.सुरक्षित.निजी.</string>
+    <string name="subtitle_browser_empty">इंटरनेट पर सर्फ़ करें। सुरक्षित रूप से.</string>
+    <string name="bookmarks">बुकमार्क</string>
+    <string name="under_development">अल्प विकास। जल्द ही उपलब्ध होगा।</string>
+    <string name="title_call_blocker">कॉल ब्लॉकर</string>
+    <string name="title_name_unknown_number">अज्ञात संख्या</string>
+
+    <string name="call_blocker_fab_description">ब्लॉक संख्या</string>
+
+
+    <!-- Call Blocker Activity texts -->
+    <string name="blacklist_empty_title">काली सूची खाली है</string>
+    <string name="blacklist_empty_description">फ़ोन नंबर ब्लॉक करने के लिए + क्लिक करें</string>
+    <string name="call_log_empty_title">कोई लॉग नहीं</string>
+
+    <string name="call_log_empty_description">कॉल ब्लॉक होने पर लॉग यहां दिखाई देता है</string>
+    <string name="dialog_add_to_blacklist_title">फ़ोन नंबर ब्लॉक करें</string>
+
+    <string name="dialog_add_to_blacklist_name_hint">नाम: (वैकल्पिक)</string>
+    <string name="dialog_add_to_blacklist_phone_hint">फोन नंबर दर्ज</string>
+
+    <string name="dialog_add_to_blacklist_action_block">अवरोध पैदा करना</string>
+    <string name="dialog_add_to_blacklist_action_cancel">रद्द करना</string>
+    <string name="dialog_black_list_delete_title">काली सूची से हटाएँ</string>
+    <string name="dialog_black_list_delete_description">क्या आप ब्लॉक किये गये नंबर को काली सूची से हटाना चाहते हैं\?</string>
+    <string name="dialog_black_list_delete_action_delete">मिटाना</string>
+
+    <string name="dialog_black_list_delete_action_cancel">रद्द करना</string>
+    <string name="dialog_title_add_to_vault">प्रसंस्करण</string>
+    <string name="dialog_description_process">आपका मीडिया गैलरी से हट रहा है और आपके वॉल्ट में जुड़ रहा है।</string>
+    <string name="dialog_action_process" translatable="false">%d%%</string>
+
+    <string name="dialog_title_removal_confirmation">हटाने की पुष्टि</string>
+    <string name="dialog_description_removal">यह फ़ाइल वॉल्ट से हट जाएगी और गैलरी में दिखाई देगी.</string>
+    <string name="dialog_action_removal_confirmation_accept">स्वीकार करना</string>
+
+    <string name="vault_photo_empty_page_title">फोटो वॉल्ट खाली है</string>
+    <string name="vault_photo_empty_page_description">गैलरी से फ़ोटो छिपाने के लिए + आइकन जोड़ें</string>
+    <string name="vault_video_empty_page_title">वीडियो वॉल्ट खाली है</string>
+
+    <string name="vault_video_empty_page_description">गैलरी से वीडियो फ़ोटो में + आइकन जोड़ें</string>
+    <string-array name="tabs">
+        <item>सुरक्षा</item>
+        <item>समायोजन</item>
+    </string-array>
+
+    <string-array name="call_blocker_tabs">
+        <item>काला सूची में डालना</item>
+        <item>कॉल लॉग</item>
+    </string-array>
+    <string-array name="vault_tabs">
+        <item>इमेजिस</item>
+        <item>वीडियो</item>
+    </string-array>
+
+    <!-- Intruders Photo Activity -->
+    <string name="title_intruders_photos">घुसपैठियों की तस्वीरें</string>
+    <string name="empty_page_intruders_title">कोई घुसपैठिया नहीं पकड़ा गया</string>
+    <string name="empty_page_intruders_description">आपका फ़ोन सुरक्षित है!</string>
+    <string name="accessibility_service_description">खाईऐपलॉक</string>
+    <string name="accessibility_service_label">khai_app_lock_label</string>
+    <string name="permissions_required">अनुमतियाँ आवश्यक हैं</string>
+    <string name="show_over_other_apps">अन्य ऐप्स पर दिखाएँ</string>
+    <string name="allow_lock_screen_to_show_over_other_apps">लॉक स्क्रीन को अन्य ऐप्स पर दिखाने की अनुमति दें</string>
+    <string name="detect_launched_app">लॉन्च किए गए ऐप का पता लगाएं</string>
+    <string name="permit_to_detect_wich_app_is_launched_by_granting_access_to_usage_statistics">उपयोग के आँकड़ों तक पहुँच प्रदान करके यह पता लगाने की अनुमति दी गई है कि कौन सा ऐप लॉन्च किया गया है</string>
+    <string name="go_to_setting">सेटिंग पर जाएं</string>
+    <string name="language">भाषा</string>
+    <string name="select_languages">भाषाएँ चुनें</string>
+
 </resources>
