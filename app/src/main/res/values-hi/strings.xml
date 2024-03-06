@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">सुरक्षित बॉक्स</string>
+    <string name="navigation_drawer_open" translatable="false">खुला नेविगेशन दराज</string>
+    <string name="navigation_drawer_close" translatable="false">निकट नेविगेशन दराज</string>
+    <string name="action_settings">समायोजन</string>
+    <string name="mobile_ad_id" translatable="false">CA-APP-PUB-7878654882882088 ~ 4416828367</string>
+    <string name="banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/5538338345</string>
+    <string name="overlay_banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/8597237218</string>
+    <string name="dashboard_banner_ad_unit_id" translatable="false">CA-APP-PUB-7878654882882088/9894092735</string>
+    <string name="share">शेयर करना</string>
+    <string name="rate">हमें रेटिंग दें</string>
+    <string name="feedback">प्रतिक्रिया</string>
+    <string name="app_security_description">लॉक ऐप की सिफारिश की</string>
+    <string name="notification_protecting_title">अपने ऐप्स की सुरक्षा</string>
+    <string name="notification_protecting_description">अपनी गोपनीयता की सुरक्षा के लिए अपने ऐप्स को लॉक करें।</string>
+    <string name="notification_permission_need_title">सुरक्षा के लिए अनुमति सक्षम करें</string>
+    <string name="notification_permission_need_description">कृपया ऐप लॉकर का उपयोग करने के लिए अपनी अनुमतियों को सक्षम करें।</string>
+    <string name="header_recommended_to_lock">ताला लगाने की सिफारिश की</string>
+    <string name="header_all_apps">सभी अनुप्रयोग</string>
+    <string name="title_general_settings">सामान्य</string>
+    <string name="title_lock_all">सभी को बंद कर दो</string>
+    <string name="description_lock_all">यह आपके सभी ऐप्स को लॉक कर देगा</string>
+</resources>

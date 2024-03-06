@@ -20,7 +20,7 @@ val listLanguage = listOf(
     Language(
         type = LanguageType.Hindi,
         content = "हिंदी",
-        languageCode = "en",
+        languageCode = "hi",
         iconSource = R.drawable.ic_language_hindi
     ),
     Language(

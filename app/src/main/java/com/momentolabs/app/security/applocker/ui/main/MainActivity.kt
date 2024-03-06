@@ -2,8 +2,10 @@ package com.momentolabs.app.security.applocker.ui.main
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -21,9 +23,11 @@ import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActi
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
 import com.momentolabs.app.security.applocker.ui.permissions.PermissionBottomSheet
 import com.momentolabs.app.security.applocker.ui.policydialog.PrivacyPolicyDialog
+import com.momentolabs.app.security.applocker.util.extensions.setLanguage
 import com.momentolabs.app.security.applocker.util.helper.NavigationIntentHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.util.Locale
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel>(),
@@ -47,6 +51,9 @@ class MainActivity : BaseActivity<MainViewModel>(),
                 }
             }
         })
+        Log.d("asgagwgwawag", "onCreate: ${viewModel.getLanguageAndSetLanguage()}")
+        viewModel.getLanguageAndSetLanguage()?.let { setLanguage(it) }
+
 
         binding.imageViewMenu.setOnClickListener { binding.drawerLayout.openDrawer(GravityCompat.START) }
 

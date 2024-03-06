@@ -13,7 +13,8 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
     val patternDao: PatternDao,
-    val userPreferencesRepository: UserPreferencesRepository
+    val userPreferencesRepository: UserPreferencesRepository,
+    val appLockerPreferences: AppLockerPreferences
 ) : RxAwareViewModel() {
 
     private val patternCreationNeedLiveData = MutableLiveData<Boolean>()
@@ -33,6 +34,10 @@ class MainViewModel @Inject constructor(
 
     fun onAppLaunchValidated() {
         appLaunchValidated = true
+    }
+
+    fun getLanguageAndSetLanguage(): String? {
+        return appLockerPreferences.getLanguage()
     }
 
     fun isPrivacyPolicyAccepted() = userPreferencesRepository.isPrivacyPolicyAccepted()
