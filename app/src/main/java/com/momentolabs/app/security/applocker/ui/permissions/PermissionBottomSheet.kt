@@ -26,7 +26,7 @@ class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
         savedInstanceState: Bundle?
     ): View {
         binding.ivCloseBottomSheet.setOnClickListener {
-            dialog.dismiss()
+            dialog?.dismiss()
         }
         if (isCanDrawOverlayPermission()) {
             binding.swShowOverApp.isChecked = true

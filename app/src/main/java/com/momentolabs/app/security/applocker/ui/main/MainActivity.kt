@@ -11,7 +11,6 @@ import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
-import com.bugsnag.android.Bugsnag
 import com.google.android.material.navigation.NavigationView
 import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.ActivityMainBinding

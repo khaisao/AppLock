@@ -1,16 +1,18 @@
 package com.momentolabs.app.security.applocker.service
 
+import android.Manifest
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import android.view.WindowManager
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import com.andrognito.patternlockview.PatternLockView
-import com.bugsnag.android.Bugsnag
 import com.momentolabs.app.security.applocker.PackageNameSendByEventBus
 import com.momentolabs.app.security.applocker.data.AppLockerPreferences
 import com.momentolabs.app.security.applocker.data.SystemPackages
@@ -180,7 +182,7 @@ class AppLockerService : DaggerService() {
                     lockedAppList.forEach { lockedAppPackageSet.add(it.parsePackageName()) }
                     SystemPackages.getSystemPackages().forEach { lockedAppPackageSet.add(it) }
                 },
-                { error -> Bugsnag.notify(error) })
+                { error ->  })
     }
 
     private fun observeOverlayView() {
@@ -213,23 +215,7 @@ class AppLockerService : DaggerService() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-                { error -> Bugsnag.notify(error) })
-//        if (Build.VERSION.SDK_INT >= 30) {
-//            foregroundAppDisposable = foregroundFlowable
-//                ?.subscribe(
-//                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-//                    { error -> Bugsnag.notify(error) }
-//                )
-//        } else {
-//            foregroundAppDisposable = appForegroundObservable
-//                .get()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(
-//                    { foregroundAppPackage -> onAppForeground(foregroundAppPackage) },
-//                    { error -> Bugsnag.notify(error) })
-//        }
-
+                { error ->  })
 
         allDisposables.add(foregroundAppDisposable!!)
     }
@@ -293,6 +279,14 @@ class AppLockerService : DaggerService() {
 
     private fun initializeAppLockerNotification() {
         val notification = serviceNotificationManager.createNotification()
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            return
+        }
         NotificationManagerCompat.from(applicationContext)
             .notify(NOTIFICATION_ID_APPLOCKER_SERVICE, notification)
         startForeground(NOTIFICATION_ID_APPLOCKER_SERVICE, notification)
@@ -300,6 +294,14 @@ class AppLockerService : DaggerService() {
 
     private fun showPermissionNeedNotification() {
         val notification = serviceNotificationManager.createPermissionNeedNotification()
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+            return
+        }
         NotificationManagerCompat.from(applicationContext)
             .notify(NOTIFICATION_ID_APPLOCKER_PERMISSION_NEED, notification)
     }

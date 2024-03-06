@@ -4,6 +4,7 @@
     package="com.momentolabs.app.security.applocker">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -32,6 +33,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:excludeFromRecents="true"
+            android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -58,7 +60,7 @@
             android:excludeFromRecents="true" />
         <activity
             android:name=".ui.language.LanguageActivity"
-            android:theme="@style/AppTheme.NoActionBar"  />
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".ui.background.BackgroundsActivity"
@@ -80,15 +82,23 @@
             android:name=".ui.intruders.IntrudersPhotosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <service android:name=".service.AppLockerService" />
+        <service
+            android:name=".service.AppLockerService"
+            android:foregroundServiceType=""
 
-        <receiver android:name=".service.receiver.BootCompleteReceiver">
+            />
+
+        <receiver
+            android:name=".service.receiver.BootCompleteReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".ui.callblocker.service.CallReceiver">
+        <receiver
+            android:name=".ui.callblocker.service.CallReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
@@ -99,6 +109,7 @@
 
         <service
             android:name=".ui.callblocker.service.CallService"
+            android:exported="true"
             android:permission="android.permission.BIND_INCALL_SERVICE">
             <meta-data
                 android:name="android.telecom.IN_CALL_SERVICE_UI"
@@ -110,6 +121,7 @@
 
         <service
             android:name=".ui.callblocker.service.CallBlockerScreeningService"
+            android:exported="true"
             android:permission="android.permission.BIND_SCREENING_SERVICE">
             <intent-filter>
                 <action android:name="android.telecom.CallScreeningService" />
@@ -118,9 +130,9 @@
 
         <service
             android:name=".service.MyAccessibilityService"
+            android:exported="true"
             android:label="@string/accessibility_service_label"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-            android:exported="true">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -139,7 +151,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/mobile_ad_id"/>
+            android:value="@string/mobile_ad_id" />
     </application>
 
 </manifest>

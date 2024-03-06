@@ -1,12 +1,15 @@
 package com.momentolabs.app.security.applocker.service.notification
 
+import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.momentolabs.app.security.applocker.R
@@ -19,7 +22,11 @@ class ServiceNotificationManager @Inject constructor(val context: Context) {
         createAppLockerServiceChannel()
 
         val resultIntent = Intent(context, MainActivity::class.java)
-        val resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        var flagPendingIntent = PendingIntent.FLAG_UPDATE_CURRENT
+        if(Build.VERSION.SDK_INT >=31){
+            flagPendingIntent = PendingIntent.FLAG_IMMUTABLE
+        }
+        val resultPendingIntent = PendingIntent.getActivity(context, 0, resultIntent, flagPendingIntent)
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID_APPLOCKER_SERVICE)
             .setSmallIcon(R.drawable.ic_round_lock_24px)
@@ -29,6 +36,13 @@ class ServiceNotificationManager @Inject constructor(val context: Context) {
             .setContentIntent(resultPendingIntent)
             .build()
 
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+        }
         NotificationManagerCompat.from(context).notify(NOTIFICATION_ID_APPLOCKER_SERVICE, notification)
         return notification
     }
@@ -47,6 +61,13 @@ class ServiceNotificationManager @Inject constructor(val context: Context) {
             .setContentIntent(resultPendingIntent)
             .build()
 
+        if (ActivityCompat.checkSelfPermission(
+                context,
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+
+        }
         NotificationManagerCompat.from(context).notify(NOTIFICATION_ID_APPLOCKER_PERMISSION_NEED, notification)
         return notification
     }

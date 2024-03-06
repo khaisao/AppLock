@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'io.fabric'
-apply plugin: 'com.bugsnag.android.gradle'
 
 def configuration = rootProject.ext.configuration
 
@@ -110,8 +108,6 @@ dependencies {
 
     implementation 'com.facebook.android:facebook-core:4.41.0'
 
-    implementation 'com.google.firebase:firebase-core:17.2.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 
     implementation 'com.daimajia.easing:library:2.0@aar'
@@ -123,11 +119,8 @@ dependencies {
     implementation 'com.googlecode.libphonenumber:libphonenumber:8.2.0'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
 
-    implementation 'com.bugsnag:bugsnag-android:4.13.0'
     implementation 'com.facebook.conceal:conceal:2.0.2'
     implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
-
-    implementation 'com.google.firebase:firebase-ads:18.2.0'
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
 
@@ -138,7 +131,6 @@ dependencies {
 
     implementation("org.greenrobot:eventbus:3.3.1")
     implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+    implementation 'com.github.dktlib:AdmobUtilsLibrary:7.2.1'
 
 }
-
-apply plugin: 'com.google.gms.google-services'

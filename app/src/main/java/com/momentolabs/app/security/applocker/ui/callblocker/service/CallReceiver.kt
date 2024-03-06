@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Build
 import android.telephony.TelephonyManager
 import com.android.internal.telephony.ITelephony
-import com.bugsnag.android.Bugsnag
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.momentolabs.app.security.applocker.data.database.callblocker.blacklist.BlackListItemEntity
 import com.momentolabs.app.security.applocker.data.database.callblocker.calllog.CallLogItemEntity
@@ -75,7 +74,7 @@ class CallReceiver : DaggerBroadcastReceiver() {
                         itemEntity?.let { saveCallLog(it) }
                     }
                 },
-                { error -> Bugsnag.notify(error) })
+                { error -> })
     }
 
     private fun isPhoneMatch(matchResult: PhoneNumberUtil.MatchType): Boolean {

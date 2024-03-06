@@ -4,7 +4,6 @@ import android.annotation.TargetApi
 import android.os.Build
 import android.telecom.Call
 import android.telecom.CallScreeningService
-import com.bugsnag.android.Bugsnag
 import com.google.i18n.phonenumbers.PhoneNumberUtil
 import com.momentolabs.app.security.applocker.data.database.callblocker.blacklist.BlackListItemEntity
 import com.momentolabs.app.security.applocker.data.database.callblocker.calllog.CallLogItemEntity
@@ -71,7 +70,7 @@ class CallBlockerScreeningService : CallScreeningService() {
                         releaseCall(details = details)
                     }
                 },
-                { error -> Bugsnag.notify(error) })
+                { error ->  })
     }
 
     private fun isPhoneMatch(matchResult: PhoneNumberUtil.MatchType): Boolean {

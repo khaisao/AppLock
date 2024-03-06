@@ -99,8 +99,18 @@ class AppIconAnimationView @JvmOverloads constructor(
                 interpolator = defaultInterpolator
                 duration = ANIM_DURATION
                 addListener(object :SimpleAnimationListener(){
-                    override fun onAnimationStart(animation: Animator?) {
-                        super.onAnimationStart(animation)
+                    override fun onAnimationRepeat(p0: Animator) {
+                    }
+
+                    override fun onAnimationEnd(p0: Animator) {
+                    }
+
+                    override fun onAnimationCancel(p0: Animator) {
+                    }
+
+
+
+                    override fun onAnimationStart(p0: Animator) {
                         dotView.visibility = View.VISIBLE
                     }
                 })

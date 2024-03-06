@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.google.android.gms.ads.*
 import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.FragmentSecurityBinding
 import com.momentolabs.app.security.applocker.ui.BaseFragment
@@ -100,37 +99,6 @@ class SecurityFragment : BaseFragment<SecurityViewModel>() {
     }
 
     private fun showBannerAd() {
-        activity?.let { MobileAds.initialize(activity) }
-
-        activity?.let {
-            val mAdView = AdView(it).apply {
-                adSize = AdSize.BANNER
-                adUnitId = getString(R.string.dashboard_banner_ad_unit_id)
-                adListener = object : AdListener() {
-                    override fun onAdClicked() {
-                        super.onAdClicked()
-                        VaultAdAnalytics.bannerAdClicked(it)
-                    }
-
-                    override fun onAdFailedToLoad(p0: Int) {
-                        super.onAdFailedToLoad(p0)
-                        VaultAdAnalytics.bannerAdFailed(it)
-                    }
-
-                    override fun onAdLoaded() {
-                        super.onAdLoaded()
-                        VaultAdAnalytics.bannerAdLoaded(it)
-                    }
-                }
-            }
-
-            binding.adLayout.addView(mAdView)
-            val adRequestBuilder = AdRequest.Builder()
-            AdTestDevices.DEVICES.forEach {
-                adRequestBuilder.addTestDevice(it)
-            }
-            mAdView.loadAd(adRequestBuilder.build())
-        }
     }
 
     companion object {

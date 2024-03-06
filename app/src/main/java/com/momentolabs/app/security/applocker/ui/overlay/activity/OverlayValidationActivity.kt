@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import com.andrognito.patternlockview.PatternLockView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.google.android.gms.ads.*
 import com.momentolabs.app.security.applocker.BuildConfig
 import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.ActivityOverlayValidationBinding
@@ -44,7 +43,7 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_overlay_validation)
 
-        updateLaunchingAppIcon(intent.getStringExtra(KEY_PACKAGE_NAME))
+        intent.getStringExtra(KEY_PACKAGE_NAME)?.let { updateLaunchingAppIcon(it) }
 
         frontPictureLiveData = FrontPictureLiveData(application, viewModel.getIntruderPictureImageFile())
 
@@ -84,6 +83,8 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
             when (it) {
                 is FrontPictureState.Taken -> OverlayAnalytics.sendIntrudersPhotoTakenEvent(this)
                 is FrontPictureState.Error -> OverlayAnalytics.sendIntrudersCameraFailedEvent(this)
+                is FrontPictureState.Destroyed -> {}
+                is FrontPictureState.Started -> {}
             }
         })
     }
@@ -103,35 +104,34 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
     }
 
     private fun showBannerAd() {
-        MobileAds.initialize(this)
-        Log.d("asgawgwagawg", "showBannerAd: ${BuildConfig.Banner_Lock_Screen}")
-        val mAdView = AdView(this).apply {
-            adSize = AdSize.BANNER
-            adUnitId = BuildConfig.Banner_Lock_Screen
-            adListener = object : AdListener() {
-                override fun onAdClicked() {
-                    super.onAdClicked()
-                    VaultAdAnalytics.bannerAdClicked(this@OverlayValidationActivity)
-                }
-
-                override fun onAdFailedToLoad(p0: Int) {
-                    super.onAdFailedToLoad(p0)
-                    VaultAdAnalytics.bannerAdFailed(this@OverlayValidationActivity)
-                }
-
-                override fun onAdLoaded() {
-                    super.onAdLoaded()
-                    VaultAdAnalytics.bannerAdLoaded(this@OverlayValidationActivity)
-                }
-            }
-        }
-
-        binding.adContainer.addView(mAdView)
-        val adRequestBuilder = AdRequest.Builder()
-        AdTestDevices.DEVICES.forEach {
-            adRequestBuilder.addTestDevice(it)
-        }
-        mAdView.loadAd(adRequestBuilder.build())
+//        Log.d("asgawgwagawg", "showBannerAd: ${BuildConfig.Banner_Lock_Screen}")
+//        val mAdView = AdView(this).apply {
+////            adSize = AdSize.BANNER
+////            adUnitId = BuildConfig.Banner_Lock_Screen
+////            adListener = object : AdListener() {
+////                override fun onAdClicked() {
+////                    super.onAdClicked()
+////                    VaultAdAnalytics.bannerAdClicked(this@OverlayValidationActivity)
+////                }
+////
+////                override fun onAdFailedToLoad(p0: Int) {
+////                    super.onAdFailedToLoad(p0)
+////                    VaultAdAnalytics.bannerAdFailed(this@OverlayValidationActivity)
+////                }
+////
+////                override fun onAdLoaded() {
+////                    super.onAdLoaded()
+////                    VaultAdAnalytics.bannerAdLoaded(this@OverlayValidationActivity)
+////                }
+////            }
+////        }
+//
+//        binding.adContainer.addView(mAdView)
+//        val adRequestBuilder = AdRequest.Builder()
+//        AdTestDevices.DEVICES.forEach {
+//            adRequestBuilder.addTestDevice(it)
+//        }
+//        mAdView.loadAd(adRequestBuilder.build())
     }
 
     private fun updateLaunchingAppIcon(appPackageName: String) {

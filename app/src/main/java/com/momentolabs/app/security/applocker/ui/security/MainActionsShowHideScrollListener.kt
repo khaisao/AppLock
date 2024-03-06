@@ -24,7 +24,8 @@ class MainActionsShowHideScrollListener(val view: View, private val viewHeight: 
                     .translationY(0f)
                     .setDuration(300)
                     .setListener(object : SimpleAnimationListener() {
-                        override fun onAnimationEnd(animation: Animator?) {
+                        override fun onAnimationEnd(p0: Animator) {
+                            super.onAnimationEnd(p0)
                             animatingDown = false
                         }
                     })
@@ -42,9 +43,12 @@ class MainActionsShowHideScrollListener(val view: View, private val viewHeight: 
                     .translationY(-viewHeight)
                     .setDuration(300)
                     .setListener(object : SimpleAnimationListener() {
-                        override fun onAnimationEnd(animation: Animator?) {
+                        override fun onAnimationEnd(animation: Animator, isReverse: Boolean) {
+                            super.onAnimationEnd(animation, isReverse)
                             animatingUp = false
+
                         }
+
                     })
                     .start()
                 animatingUp = true
@@ -57,9 +61,12 @@ class MainActionsShowHideScrollListener(val view: View, private val viewHeight: 
                     .translationY(0f)
                     .setDuration(300)
                     .setListener(object : SimpleAnimationListener() {
-                        override fun onAnimationEnd(animation: Animator?) {
+                        override fun onAnimationEnd(p0: Animator) {
+                            super.onAnimationEnd(p0)
                             animatingDown = false
+
                         }
+
                     })
                     .start()
                 animatingDown = true

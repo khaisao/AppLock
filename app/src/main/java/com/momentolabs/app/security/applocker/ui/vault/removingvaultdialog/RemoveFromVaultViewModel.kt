@@ -61,6 +61,9 @@ class RemoveFromVaultViewModel @Inject constructor(
                 {
                     when (it) {
                         is CryptoProcess.Complete -> fakeProgress.complete()
+                        is CryptoProcess.Processing -> {
+
+                        }
                     }
                 },
                 { Crashlytics.logException(it) })
