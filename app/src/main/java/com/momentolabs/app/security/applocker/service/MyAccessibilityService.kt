@@ -4,7 +4,7 @@ import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
 import android.util.Log
 import android.view.accessibility.AccessibilityEvent
-import com.momentolabs.app.security.applocker.PackageNameSendByEventBus
+import com.momentolabs.app.security.applocker.data.PackageNameSendByEventBus
 import org.greenrobot.eventbus.EventBus
 import javax.inject.Inject
 

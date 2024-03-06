@@ -6,14 +6,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import android.view.WindowManager
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationManagerCompat
 import com.andrognito.patternlockview.PatternLockView
-import com.momentolabs.app.security.applocker.PackageNameSendByEventBus
+import com.momentolabs.app.security.applocker.data.PackageNameSendByEventBus
 import com.momentolabs.app.security.applocker.data.AppLockerPreferences
 import com.momentolabs.app.security.applocker.data.SystemPackages
 import com.momentolabs.app.security.applocker.data.database.lockedapps.LockedAppsDao

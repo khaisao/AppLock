@@ -8,6 +8,7 @@ import com.momentolabs.app.security.applocker.di.component.DaggerAppComponent
 import com.momentolabs.app.security.applocker.service.ServiceStarter
 import com.momentolabs.app.security.applocker.service.worker.WorkerStarter
 import com.raqun.beaverlib.Beaver
+import com.vapp.admoblibrary.ads.AdmobUtils
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 
@@ -23,6 +24,7 @@ class AppLockerApplication : DaggerApplication() {
         ServiceStarter.startService(this)
         SoLoader.init(this, false)
         WorkerStarter.startServiceCheckerWorker()
+        AdmobUtils.initAdmob(context = this, timeout = 10000, isDebug = true, isEnableAds = true)
     }
 
     override fun attachBaseContext(base: Context?) {

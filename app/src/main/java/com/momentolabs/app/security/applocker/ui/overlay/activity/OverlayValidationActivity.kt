@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import com.andrognito.patternlockview.PatternLockView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.momentolabs.app.security.applocker.BuildConfig
 import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.ActivityOverlayValidationBinding
 import com.momentolabs.app.security.applocker.ui.BaseActivity
@@ -20,10 +19,11 @@ import com.momentolabs.app.security.applocker.ui.intruders.camera.FrontPictureLi
 import com.momentolabs.app.security.applocker.ui.intruders.camera.FrontPictureState
 import com.momentolabs.app.security.applocker.ui.newpattern.SimplePatternListener
 import com.momentolabs.app.security.applocker.ui.overlay.analytics.OverlayAnalytics
-import com.momentolabs.app.security.applocker.ui.vault.analytics.VaultAdAnalytics
-import com.momentolabs.app.security.applocker.util.ads.AdTestDevices
 import com.momentolabs.app.security.applocker.util.extensions.convertToPatternDot
 import com.momentolabs.app.security.applocker.util.helper.file.FileManager
+import com.vapp.admoblibrary.ads.AdmobUtils
+import com.vapp.admoblibrary.ads.admobnative.enumclass.GoogleENative
+import com.vapp.admoblibrary.ads.model.NativeHolder
 import javax.inject.Inject
 
 
@@ -44,8 +44,41 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_overlay_validation)
 
         intent.getStringExtra(KEY_PACKAGE_NAME)?.let { updateLaunchingAppIcon(it) }
+        var nativeHolder = NativeHolder(
+            "ca-app-pub-3940256099942544/2247696110"
+        )
 
-        frontPictureLiveData = FrontPictureLiveData(application, viewModel.getIntruderPictureImageFile())
+        AdmobUtils.loadAndShowNativeAdsWithLayoutAds(
+            activity = this,
+            nativeHolder = nativeHolder,
+            viewGroup = binding.adContainer,
+            layout = R.layout.ad_template_medium,
+            size = GoogleENative.UNIFIED_MEDIUM,
+            adCallback = object : AdmobUtils.NativeAdCallbackNew {
+                override fun onAdFail(error: String) {
+                    Log.d("asgawgawgawg", "onAdFail: $error")
+                }
+
+                override fun onAdPaid(
+                    adValue: com.google.android.gms.ads.AdValue?,
+                    adUnitAds: String?
+                ) {
+                }
+
+                override fun onClickAds() {
+                }
+
+                override fun onLoadedAndGetNativeAd(ad: com.google.android.gms.ads.nativead.NativeAd?) {
+                }
+
+                override fun onNativeAdLoaded() {
+                }
+
+            }
+
+        )
+        frontPictureLiveData =
+            FrontPictureLiveData(application, viewModel.getIntruderPictureImageFile())
 
         viewModel.getViewStateObservable().observe(this, Observer {
             binding.patternLockView.clearPattern()
@@ -104,34 +137,7 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
     }
 
     private fun showBannerAd() {
-//        Log.d("asgawgwagawg", "showBannerAd: ${BuildConfig.Banner_Lock_Screen}")
-//        val mAdView = AdView(this).apply {
-////            adSize = AdSize.BANNER
-////            adUnitId = BuildConfig.Banner_Lock_Screen
-////            adListener = object : AdListener() {
-////                override fun onAdClicked() {
-////                    super.onAdClicked()
-////                    VaultAdAnalytics.bannerAdClicked(this@OverlayValidationActivity)
-////                }
-////
-////                override fun onAdFailedToLoad(p0: Int) {
-////                    super.onAdFailedToLoad(p0)
-////                    VaultAdAnalytics.bannerAdFailed(this@OverlayValidationActivity)
-////                }
-////
-////                override fun onAdLoaded() {
-////                    super.onAdLoaded()
-////                    VaultAdAnalytics.bannerAdLoaded(this@OverlayValidationActivity)
-////                }
-////            }
-////        }
-//
-//        binding.adContainer.addView(mAdView)
-//        val adRequestBuilder = AdRequest.Builder()
-//        AdTestDevices.DEVICES.forEach {
-//            adRequestBuilder.addTestDevice(it)
-//        }
-//        mAdView.loadAd(adRequestBuilder.build())
+
     }
 
     private fun updateLaunchingAppIcon(appPackageName: String) {
