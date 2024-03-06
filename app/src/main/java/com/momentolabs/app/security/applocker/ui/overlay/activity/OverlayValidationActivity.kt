@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -12,6 +13,7 @@ import com.andrognito.patternlockview.PatternLockView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.google.android.gms.ads.*
+import com.momentolabs.app.security.applocker.BuildConfig
 import com.momentolabs.app.security.applocker.R
 import com.momentolabs.app.security.applocker.databinding.ActivityOverlayValidationBinding
 import com.momentolabs.app.security.applocker.ui.BaseActivity
@@ -102,9 +104,10 @@ class OverlayValidationActivity : BaseActivity<OverlayValidationViewModel>() {
 
     private fun showBannerAd() {
         MobileAds.initialize(this)
+        Log.d("asgawgwagawg", "showBannerAd: ${BuildConfig.Banner_Lock_Screen}")
         val mAdView = AdView(this).apply {
             adSize = AdSize.BANNER
-            adUnitId = getString(R.string.overlay_banner_ad_unit_id)
+            adUnitId = BuildConfig.Banner_Lock_Screen
             adListener = object : AdListener() {
                 override fun onAdClicked() {
                     super.onAdClicked()

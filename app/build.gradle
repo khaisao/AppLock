@@ -11,16 +11,28 @@ android {
     compileSdkVersion configuration.compileSdkVersion
 
     flavorDimensions "build"
-    productFlavors {
-        dev {
-            dimension "build"
-            minSdkVersion configuration.minSdkVersion
-        }
-        prod {
-            dimension "build"
-            minSdkVersion configuration.minSdkVersion
-        }
-    }
+//    productFlavors {
+//        dev {
+//            dimension "build"
+//            minSdkVersion configuration.minSdkVersion
+//            buildConfigField "String", "Interstitial_Splash", "\"ca-app-pub-3940256099942544/1033173712\""
+//            buildConfigField "String", "Native_Home", "\"ca-app-pub-3940256099942544/2247696110\""
+//            buildConfigField "String", "Interstitial", "\"ca-app-pub-3940256099942544/1033173712\""
+//            buildConfigField "String", "Banner_Lock_Screen", "\"ca-app-pub-3940256099942544/6300978111\""
+//            buildConfigField "String", "Native_Alarm", "\"ca-app-pub-3940256099942544/2247696110\""
+//            buildConfigField "String", "Banner_setting", "\"ca-app-pub-3940256099942544/6300978111\""
+//        }
+//        prod {
+//            dimension "build"
+//            minSdkVersion configuration.minSdkVersion
+//            buildConfigField "String", "Interstitial_Splash", "\"ca-app-pub-3548016532531500/3272833277\""
+//            buildConfigField "String", "Native_Home", "\"ca-app-pub-3548016532531500/8333588268\""
+//            buildConfigField "String", "Interstitial", "\"ca-app-pub-3548016532531500/6221047353\""
+//            buildConfigField "String", "Banner_Lock_Screen", "\"ca-app-pub-5678448031619954/4352221040\""
+//            buildConfigField "String", "Native_Alarm", "\"ca-app-pub-3548016532531500/2281802343\""
+//            buildConfigField "String", "Banner_setting", "\"ca-app-pub-3548016532531500/4907965687\""
+//        }
+//    }
 
     defaultConfig {
         applicationId configuration.package
@@ -34,21 +46,20 @@ android {
     }
 
     buildTypes {
+        debug {
+        }
         release {
             debuggable false
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
 
     dataBinding {
         enabled = true
     }
-
-//    buildFeatures {
-//        viewBinding = true
-//    }
 
     afterEvaluate {
         if (project.plugins.hasPlugin("kotlin-kapt")) {
