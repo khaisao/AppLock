@@ -10,6 +10,7 @@ import com.momentolabs.app.security.applocker.ui.main.MainActivity
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActivity
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
 import com.momentolabs.app.security.applocker.ui.permissions.PermissionsActivity
+import com.momentolabs.app.security.applocker.ui.splash.SplashActivity
 import com.momentolabs.app.security.applocker.ui.vault.VaultActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -23,6 +24,10 @@ abstract class ActivityBuilderModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])
     abstract fun mainActivity(): MainActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])
+    abstract fun splashActivity(): SplashActivity
 
     @ActivityScope
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class, DialogFragmentBuilderModule::class])

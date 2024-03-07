@@ -15,9 +15,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
@@ -30,6 +28,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.main.MainActivity"
             android:excludeFromRecents="true"
@@ -38,55 +43,44 @@
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <action android:name="android.intent.action.DIAL" />
 
-            <intent-filter>
-                <action android:name="android.intent.action.DIAL" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:scheme="tel" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.newpattern.CreateNewPatternActivity" />
-
         <activity
             android:name=".ui.overlay.activity.OverlayValidationActivity"
             android:excludeFromRecents="true" />
         <activity
             android:name=".ui.language.LanguageActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.background.BackgroundsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.browser.BrowserActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.vault.VaultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.callblocker.CallBlockerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".ui.intruders.IntrudersPhotosActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
             android:name=".service.AppLockerService"
-            android:foregroundServiceType=""
-
-            />
+            android:foregroundServiceType="" />
 
         <receiver
             android:name=".service.receiver.BootCompleteReceiver"
@@ -95,7 +89,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name=".ui.callblocker.service.CallReceiver"
             android:exported="true">
@@ -114,11 +107,11 @@
             <meta-data
                 android:name="android.telecom.IN_CALL_SERVICE_UI"
                 android:value="false" />
+
             <intent-filter>
                 <action android:name="android.telecom.InCallService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".ui.callblocker.service.CallBlockerScreeningService"
             android:exported="true"
@@ -127,7 +120,6 @@
                 <action android:name="android.telecom.CallScreeningService" />
             </intent-filter>
         </service>
-
         <service
             android:name=".service.MyAccessibilityService"
             android:exported="true"
@@ -136,6 +128,7 @@
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
+
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
@@ -144,11 +137,9 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-
         <meta-data
             android:name="com.bugsnag.android.API_KEY"
             android:value="ebbfbab41a7d4b9865f3baefba6a24ce" />
-
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-5678448031619954~2221608070" />
