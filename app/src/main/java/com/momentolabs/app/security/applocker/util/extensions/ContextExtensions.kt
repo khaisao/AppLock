@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.core.os.ConfigurationCompat.getLocales
 import android.os.Build
+import android.provider.Settings
 import java.util.*
 
 
@@ -22,4 +23,12 @@ fun Context.setLanguage(languageCode: String) {
     configuration.setLocale(locale)
     createConfigurationContext(configuration)
     resources.updateConfiguration(configuration, resources.displayMetrics)
+}
+
+fun Context.isCanDrawOverlayPermission(): Boolean {
+    return if (Build.VERSION.SDK_INT >= 30) {
+        Settings.canDrawOverlays(this)
+    } else {
+        true
+    }
 }

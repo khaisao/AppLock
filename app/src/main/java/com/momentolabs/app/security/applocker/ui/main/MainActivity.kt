@@ -3,6 +3,7 @@ package com.momentolabs.app.security.applocker.ui.main
 import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
@@ -21,7 +22,9 @@ import com.momentolabs.app.security.applocker.ui.main.analytics.MainActivityAnal
 import com.momentolabs.app.security.applocker.ui.newpattern.CreateNewPatternActivity
 import com.momentolabs.app.security.applocker.ui.overlay.activity.OverlayValidationActivity
 import com.momentolabs.app.security.applocker.ui.permissions.PermissionBottomSheet
+import com.momentolabs.app.security.applocker.ui.permissions.PermissionChecker
 import com.momentolabs.app.security.applocker.ui.policydialog.PrivacyPolicyDialog
+import com.momentolabs.app.security.applocker.util.extensions.isCanDrawOverlayPermission
 import com.momentolabs.app.security.applocker.util.extensions.setLanguage
 import com.momentolabs.app.security.applocker.util.helper.NavigationIntentHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -50,7 +53,6 @@ class MainActivity : BaseActivity<MainViewModel>(),
                 }
             }
         })
-        Log.d("asgagwgwawag", "onCreate: ${viewModel.getLanguageAndSetLanguage()}")
         viewModel.getLanguageAndSetLanguage()?.let { setLanguage(it) }
 
 
@@ -76,7 +78,6 @@ class MainActivity : BaseActivity<MainViewModel>(),
             }
         })
         showPermissionIfNeedAndroid11()
-
     }
 
     override fun onBackPressed() {
@@ -127,7 +128,13 @@ class MainActivity : BaseActivity<MainViewModel>(),
     }
 
     private fun showPermissionIfNeedAndroid11() {
-        PermissionBottomSheet.newInstance().show(supportFragmentManager, "")
+        if (Build.VERSION.SDK_INT >= 30 && !isCanDrawOverlayPermission() || PermissionChecker.checkUsageAccessPermission(
+                this
+            )
+                .not()
+        ) {
+            PermissionBottomSheet.newInstance().show(supportFragmentManager, "")
+        }
     }
 
     companion object {

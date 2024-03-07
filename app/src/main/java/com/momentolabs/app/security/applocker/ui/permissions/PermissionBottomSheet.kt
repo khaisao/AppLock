@@ -2,7 +2,6 @@ package com.momentolabs.app.security.applocker.ui.permissions
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.LayoutInflater
@@ -14,6 +13,7 @@ import com.momentolabs.app.security.applocker.databinding.BottomSheetPermissionB
 import com.momentolabs.app.security.applocker.ui.BaseBottomSheetDialog
 import com.momentolabs.app.security.applocker.ui.rateus.RateUsViewModel
 import com.momentolabs.app.security.applocker.util.delegate.inflate
+import com.momentolabs.app.security.applocker.util.extensions.isCanDrawOverlayPermission
 
 class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
     private val binding: BottomSheetPermissionBinding by inflate(R.layout.bottom_sheet_permission)
@@ -28,7 +28,7 @@ class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
         binding.ivCloseBottomSheet.setOnClickListener {
             dialog?.dismiss()
         }
-        if (isCanDrawOverlayPermission()) {
+        if (requireContext().isCanDrawOverlayPermission()) {
             binding.swShowOverApp.isChecked = true
             binding.swShowOverApp.setOnClickListener {
             }
@@ -67,14 +67,6 @@ class PermissionBottomSheet : BaseBottomSheetDialog<RateUsViewModel>() {
             val dialog = PermissionBottomSheet()
             dialog.isCancelable = false
             return dialog
-        }
-    }
-
-    private fun isCanDrawOverlayPermission(): Boolean {
-        return if (Build.VERSION.SDK_INT >= 30) {
-            Settings.canDrawOverlays(requireContext())
-        } else {
-            true
         }
     }
 

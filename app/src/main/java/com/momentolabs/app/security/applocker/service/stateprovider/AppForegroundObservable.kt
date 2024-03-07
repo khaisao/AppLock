@@ -18,6 +18,7 @@ class AppForegroundObservable @Inject constructor(val context: Context) {
 
     private var foregroundFlowable: Flowable<String>? = null
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     fun get(): Flowable<String> {
         foregroundFlowable = when {
             Build.VERSION.SDK_INT >= 30 -> getForegroundObservableHigherAndroid11()
@@ -28,7 +29,7 @@ class AppForegroundObservable @Inject constructor(val context: Context) {
         return foregroundFlowable!!
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private fun getForegroundObservableHigherLollipop(): Flowable<String> {
         return Flowable.interval(100, TimeUnit.MILLISECONDS)
             .filter { PermissionChecker.checkUsageAccessPermission(context) }
@@ -56,7 +57,7 @@ class AppForegroundObservable @Inject constructor(val context: Context) {
             .distinctUntilChanged()
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP_MR1)
     private fun getForegroundObservableHigherAndroid11(): Flowable<String> {
         return Flowable.interval(100, TimeUnit.MILLISECONDS)
             .filter { PermissionChecker.checkUsageAccessPermission(context) }

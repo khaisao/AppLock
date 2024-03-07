@@ -18,6 +18,9 @@ import com.momentolabs.app.security.applocker.ui.vault.VaultActivity
 import com.momentolabs.app.security.applocker.ui.vault.analytics.VaultAdAnalytics
 import com.momentolabs.app.security.applocker.util.ads.AdTestDevices
 import com.momentolabs.app.security.applocker.util.delegate.inflate
+import com.vapp.admoblibrary.ads.AdmobUtils
+import com.vapp.admoblibrary.ads.admobnative.enumclass.GoogleENative
+import com.vapp.admoblibrary.ads.model.NativeHolder
 
 class SecurityFragment : BaseFragment<SecurityViewModel>() {
 
@@ -31,9 +34,40 @@ class SecurityFragment : BaseFragment<SecurityViewModel>() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding.recyclerViewAppLockList.adapter = adapter
+        val nativeHolder = NativeHolder(
+            "ca-app-pub-3940256099942544/2247696110"
+        )
 
+        AdmobUtils.loadAndShowNativeAdsWithLayoutAds(
+            activity = requireActivity(),
+            nativeHolder = nativeHolder,
+            viewGroup = binding.adLayout,
+            layout = R.layout.ad_template_small,
+            size = GoogleENative.UNIFIED_SMALL,
+            adCallback = object : AdmobUtils.NativeAdCallbackNew {
+                override fun onAdFail(error: String) {
+                }
+
+                override fun onAdPaid(
+                    adValue: com.google.android.gms.ads.AdValue?,
+                    adUnitAds: String?
+                ) {
+                }
+
+                override fun onClickAds() {
+                }
+
+                override fun onLoadedAndGetNativeAd(ad: com.google.android.gms.ads.nativead.NativeAd?) {
+                }
+
+                override fun onNativeAdLoaded() {
+                }
+
+            }
+
+        )
         binding.recyclerViewAppLockList.addOnScrollListener(
             MainActionsShowHideScrollListener(
                 binding.layoutMainActions.root,
